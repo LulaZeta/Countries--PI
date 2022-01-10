@@ -5,11 +5,13 @@ import {
   SORT,
   FILTER_CONTINENTS,
   FILTER_COUNTRIES,
+  COUNTRY_DETAILS,
 } from "../actions";
 
 const initialState = {
   countries: [],
   filteredCountries: [],
+  detail: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -19,6 +21,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         countries: action.payload,
         filteredCountries: action.payload,
+        detail: action.payload,
       };
     case SEARCH_COUNTRIES:
       return {
@@ -41,7 +44,7 @@ export default function reducer(state = initialState, action) {
         filteredCountries: orderedCountries,
       };
     case FILTER_CONTINENTS:
-      const continente = state.filteredCountries;
+      const continente = state.countries;
       const statusFiltered =
         action.payload === "All"
           ? continente
@@ -54,6 +57,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         filteredCountries: action.payload,
+      };
+    case COUNTRY_DETAILS:
+      return {
+        ...state,
+        detail: action.payload,
       };
     default:
       return state;

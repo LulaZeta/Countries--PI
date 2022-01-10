@@ -4,6 +4,7 @@ export const SEARCH_COUNTRIES = "SEARCH_COUNTRIES";
 export const SORT = "SORT";
 export const FILTER_CONTINENTS = "FILTER_CONTINENTS";
 export const FILTER_COUNTRIES = "FILTER_COUNTRIES";
+export const COUNTRY_DETAILS = "COUNTRY_DETAILS";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -53,5 +54,18 @@ export function filterCountries(payload) {
   return {
     type: FILTER_COUNTRIES,
     payload: payload,
+  };
+}
+export function countryDetails(id) {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get("http://localhost:3001/countries/" + id);
+      return dispatch({
+        type: "COUNTRY_DETAILS",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
