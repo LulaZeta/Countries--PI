@@ -13,11 +13,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    flags: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    imaage: {
+    continents: {
       type: DataTypes.ENUM(
         "South America",
         "North America",

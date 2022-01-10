@@ -3,7 +3,7 @@ const { Router } = require("express");
 // Ejemplo: const authRouter = require('./auth.js');
 
 const axios = require("axios");
-const { Country, Activities, country_activity } = require("../db");
+const { Country, Activities, countries_activities } = require("../db");
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -15,8 +15,8 @@ const getApiInfo = async () => {
     return {
       name: el.name.common,
       id: el.cca3,
-      flags: el.flags[0], // ? el.flags[0] : "Image not Found",
-      image: el.continents,
+      image: el.flags[0], // ? el.flags[0] : "Image not Found",
+      continents: el.continents[0],
       capital: el.capital || ["No tiene capital"],
       subregion: el.subregion,
       area: Number(el.area),
