@@ -17,8 +17,16 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    continents: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+    imaage: {
+      type: DataTypes.ENUM(
+        "South America",
+        "North America",
+        "Europe",
+        "Africa",
+        "Asia",
+        "Oceania",
+        "Antarctica"
+      ),
       allowNull: false,
     },
     capital: {

@@ -15,8 +15,8 @@ const getApiInfo = async () => {
     return {
       name: el.name.common,
       id: el.cca3,
-      flags: el.flags[0] ? el.flags[0] : "Image not Found",
-      continents: el.continents,
+      flags: el.flags[0], // ? el.flags[0] : "Image not Found",
+      image: el.continents,
       capital: el.capital || ["No tiene capital"],
       subregion: el.subregion,
       area: Number(el.area),
