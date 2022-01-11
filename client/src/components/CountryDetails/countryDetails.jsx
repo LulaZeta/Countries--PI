@@ -31,14 +31,14 @@ export default function CountryDetails(props) {
         <p>Subregión: {myCountry.subregion}</p>
         <p>Área: {myCountry.area} Km²</p>
         <p>Población: {myCountry.population} </p>
-        <p>Actividades: </p>
+        <h3>Actividades: </h3>
         
         {
         
         myCountry.activities?.map((el) => {
             return (        
                 <div className= "activity"> 
-                <h3>nombre: {el.name}</h3> 
+                <h3>{el.name}</h3> 
                 <h3>dificultad: {el.difficulty}</h3> 
                 <h3>duración: {el.duration} </h3>
                 <h3>temporada: {el.season}</h3>
@@ -46,8 +46,7 @@ export default function CountryDetails(props) {
                 )
         })
     }
-        : <h2>Este Pais no tiene Actividad</h2>
-              
+                   
 
         </div> :
         
