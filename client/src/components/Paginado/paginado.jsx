@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-//import Country from "../Country/country";
+import Country from "../Country/country";
 import Paginados from "./Paginados";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export default function Paginado(){
     const [countriesPerPage, setcountriesPerPage] = useState(10)     //paises por pagina
     const indexOfLastCountry =  currentPage * countriesPerPage   //10   indice del ultimo pais
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage   //0  
-    const currentCountries = filterCountries.flat().slice(indexOfFirstCountry, indexOfLastCountry)
+    const currentCountries = filterCountries.slice(indexOfFirstCountry, indexOfLastCountry)
 
 
 //pag 1 --> 0 ----- 10
@@ -19,11 +19,12 @@ export default function Paginado(){
     const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
 }
+
     return(
         <div>
             <Paginados 
             countriesPerPage={{countriesPerPage}}
-            filteredcountries={filterCountries.flat().length}
+            filteredcountries={filterCountries.length}
             paginado={paginado}
             />
             {currentCountries?.map(el => {

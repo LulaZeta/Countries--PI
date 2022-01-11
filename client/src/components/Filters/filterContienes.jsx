@@ -17,7 +17,7 @@ export default function FilterContinents() {
     return(
         <div>
             <select name="select" onChange={handleFilterContinents}>
-                <option value= 'All'>Todos</option>
+                <option value= 'All'>Todos los Continentes</option>
                 <option value= 'South America'>América del Sur</option>
                 <option value= 'North America'>América del Norte</option>
                 <option value= 'Europe'>Europa</option>

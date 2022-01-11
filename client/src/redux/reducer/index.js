@@ -6,12 +6,15 @@ import {
   FILTER_CONTINENTS,
   FILTER_COUNTRIES,
   COUNTRY_DETAILS,
+  GET_ACTIVITY,
+  GET_NAME_COUNTRY,
 } from "../actions";
 
 const initialState = {
   countries: [],
   filteredCountries: [],
   detail: [],
+  activity: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -54,14 +57,30 @@ export default function reducer(state = initialState, action) {
         filteredCountries: statusFiltered,
       };
     case FILTER_COUNTRIES:
+      const pais = state.countries;
+      const paisFiltrado = pais.filter((el) => el.name === action.payload);
       return {
         ...state,
-        filteredCountries: action.payload,
+        filteredCountries: paisFiltrado,
       };
     case COUNTRY_DETAILS:
       return {
         ...state,
         detail: action.payload,
+      };
+    case GET_NAME_COUNTRY:
+      return {
+        ...state,
+        filteredCountries: action.payload,
+      };
+    // case POST_ACTIVITY:
+    //   return {
+    //     ...state,
+    //   };
+    case GET_ACTIVITY:
+      return {
+        ...state,
+        activity: action.payload,
       };
     default:
       return state;

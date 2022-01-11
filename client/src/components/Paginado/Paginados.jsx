@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Paginados({countriesPerPage, filteredCountries, paginado}) {
     const pageNumber = []
-    for ( let i=0; i<= Math.ceil(filteredCountries.flat()/countriesPerPage); i++){
+    for ( let i=0; i<= Math.ceil(filteredCountries/countriesPerPage); i++){
         pageNumber.push(i + 1)
     }
     return(
