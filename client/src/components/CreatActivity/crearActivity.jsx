@@ -57,12 +57,12 @@ export default function CreatActivity (){
         console.log(input)
         
     }
-    // function deleteActivity (id) {
-    //     setInput({
-    //       ...input,
-    //       country: input.country.filter(t => t !== id)
-    //     })
-    //   }
+    function handleDelete (el) {
+        setInput({
+          ...input,
+          country: input.country.filter(p => p !== el)
+        })
+      }
 
 
     return (<div> 
@@ -132,15 +132,14 @@ export default function CreatActivity (){
                      <button type='submit'> CREAR </button>
                     
                      </form>
+                     {input.country.map(el => 
+                     <div className="">
+                         <p>{el}</p>
+                            <button className="" onClick={() => handleDelete(el)}>x</button>
+                     </div>
+                    )}
                       </div>)
                
-                      {/* 
-                       input..map( e => (
-                       <li>{e} <button className="delete" onClick={() => deleteActivity(e)} >x</button> </li>
-                     ))
-                
-                    }
-                     </ul> */}
                   
 
              
