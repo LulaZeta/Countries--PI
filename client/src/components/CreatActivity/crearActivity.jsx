@@ -1,8 +1,9 @@
 import React, { useState} from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getCountries, postActivity } from "../../redux/actions";
+
+
 
 
 export default function CreatActivity (){
@@ -10,6 +11,7 @@ export default function CreatActivity (){
     const dispatch = useDispatch()
     const pais = useSelector((e)=> e.countries)
 
+    
     const [input, setInput] = useState({
         name: "",
         difficulty:"",
@@ -39,6 +41,10 @@ export default function CreatActivity (){
     function handleSubmit(e){
         e.preventDefault();
         console.log(input)
+        if( input.name.lenght > 0 
+            
+
+        ){
         dispatch(postActivity(input))
         alert("Actividad creada")
         setInput({
@@ -48,12 +54,17 @@ export default function CreatActivity (){
             season:"",
             country: []
         })
+        }
+        else{
+            alert("Por favor, completa los campos")
+        }
     }
     function handleSelect(e){
              setInput ({
             ...input,
             country : [...input.country, e.target.value]
         });
+        
         console.log(input)
         
     }
@@ -101,8 +112,8 @@ export default function CreatActivity (){
                         <label for="Winter">Invierno</label>
                         <input type="checkbox" id="Spring" name="season" value="Spring" onChange={(e) => handleCheck(e)}/>
                         <label for="Spring">Primavera</label>
-                        <input type="checkbox" id="Autumn" name="season" value="Autumn" onChange={(e) => handleCheck(e)}/>
-                        <label for="Autumn">Otoño</label>  
+                        
+                       
                
                     </div><br/>
                     <div>
@@ -114,8 +125,7 @@ export default function CreatActivity (){
 
                     </div><br/>
                     <div>
-                        <label>Buscar Pais: </label>
-                        <div className='select' >
+                         <div className='select' >
                             <select required onChange={(e) => handleSelect(e)}>
                                  <option>seleccionar pais</option>
                                     { pais.map((el) => (
@@ -140,12 +150,5 @@ export default function CreatActivity (){
                     )}
                       </div>)
                
-                  
-
-             
-
-
-
-
-   
+                     
 }

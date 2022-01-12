@@ -7,6 +7,7 @@ export const FILTER_COUNTRIES = "FILTER_COUNTRIES";
 export const COUNTRY_DETAILS = "COUNTRY_DETAILS";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
+export const POST_ACTIVITY = "POST_ACTIVITY";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -89,23 +90,9 @@ export function postActivity(payload) {
       "http://localhost:3001/activity",
       payload
     );
-    console.log(response);
-    return response;
-  };
-}
-
-export function getNameCountry(name) {
-  return async function (dispatch) {
-    try {
-      var json = await axios.get(
-        "http://localhost:3001/countries/?name=" + name
-      );
-      return dispatch({
-        type: "GET_NAME_COUNTRY",
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch({
+      type: "POST_ACTIVITY",
+      payload: response.data,
+    });
   };
 }

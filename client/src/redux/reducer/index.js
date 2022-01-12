@@ -7,7 +7,7 @@ import {
   FILTER_COUNTRIES,
   COUNTRY_DETAILS,
   GET_ACTIVITY,
-  GET_NAME_COUNTRY,
+  POST_ACTIVITY,
 } from "../actions";
 
 const initialState = {
@@ -69,15 +69,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
-    case GET_NAME_COUNTRY:
+
+    case POST_ACTIVITY:
       return {
         ...state,
-        filteredCountries: action.payload,
       };
-    // case POST_ACTIVITY:
-    //   return {
-    //     ...state,
-    //   };
     case GET_ACTIVITY:
       return {
         ...state,
