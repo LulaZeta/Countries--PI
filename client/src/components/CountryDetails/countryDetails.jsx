@@ -30,7 +30,7 @@ export default function CountryDetails(props) {
         <h3>Código de País: {myCountry.id}</h3>
         <p>Subregión: {myCountry.subregion}</p>
         <p>Área: {myCountry.area} Km²</p>
-        <p>Población: {myCountry.population} </p>
+        <p>Población: {myCountry.population} habitantes</p>
         <h3>Actividades: </h3>
         
         {
@@ -44,7 +44,7 @@ export default function CountryDetails(props) {
                 <h3>temporada: {el.season}</h3>
                 </div>
                 )
-        })
+        }) 
     }
                    
 

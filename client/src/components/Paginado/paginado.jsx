@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import Country from "../Country/country";
 import Paginados from "./Paginados";
 import { Link } from "react-router-dom";
 
 export default function Paginado(){
-    const filterCountries = useState ((state) => state.filteredCountries)     //me traigo del reducer todos los paises
+    const filterCountries = useSelector ((state) => state.filteredCountries)     //me traigo del reducer todos los paises
     const [currentPage, setCurrentPage] = useState(1)       //estado local pagina actual
     const [countriesPerPage, setcountriesPerPage] = useState(10)     //paises por pagina
     const indexOfLastCountry =  currentPage * countriesPerPage   //10   indice del ultimo pais

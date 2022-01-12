@@ -25,6 +25,7 @@ export default function reducer(state = initialState, action) {
         countries: action.payload,
         filteredCountries: action.payload,
         detail: action.payload,
+        activity: action.payload,
       };
     case SEARCH_COUNTRIES:
       return {

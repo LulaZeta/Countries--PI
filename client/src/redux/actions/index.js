@@ -89,6 +89,7 @@ export function postActivity(payload) {
       "http://localhost:3001/activity",
       payload
     );
+    console.log(response);
     return response;
   };
 }
