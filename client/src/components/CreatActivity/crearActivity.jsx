@@ -1,14 +1,15 @@
 import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity } from "../../redux/actions";
-
+import { useNavigate} from 'react-router-dom';
 
 
 export default function CreatActivity (){
 
     const dispatch = useDispatch()
     const pais = useSelector((e)=> e.countries);
-    const activities = useSelector(state=> state.activity);
+    const history = useNavigate()
+    //const activities = useSelector(state=> state.activity);
     const [errors,setErrors] = useState({});
 
     const [input, setInput] = useState({
@@ -28,10 +29,10 @@ export default function CreatActivity (){
         let errors = {} ;
         if (!input.name) {
             errors.name = 'Nombre de Actividad Requerido'
-        } else {
-            for(var i=0; i< activities.lenght; i ++){
-                if(activities[i].name === input.name) errors.name = 'Actividad ya creada'
-            }
+        // } else {
+        //     for(var i=0; i< activities.lenght; i ++){
+        //         if(activities.name[i] === input.name) errors.name = 'Actividad ya creada'
+        //     }
         }
         if(!input.difficulty) {
             errors.difficulty = 'Completa campo de dificultad'
@@ -48,7 +49,6 @@ export default function CreatActivity (){
         return errors;
     }
     
-
 
 
 
@@ -96,10 +96,13 @@ export default function CreatActivity (){
             duration:"",
             season:"",
             country: []
-        })        
+        }) 
+        history('/home')
+        
         } else {
         alert("Por favor, completa todos los campos")
         }
+     
     }
     function handleSelect(e){
              setInput ({
