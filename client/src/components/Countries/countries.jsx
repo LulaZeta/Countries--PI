@@ -4,6 +4,7 @@ import Paginados from '../Paginado/Paginados'
 import Country from '../Country/country'
 
 
+
 export default function Countries () {
   let countries = useSelector(state => state.filteredCountries)
 
@@ -35,13 +36,17 @@ export default function Countries () {
           />
         )
       })}
-          <Paginados
-        countriesPerPage={countriesPerPage}
-        filteredCountries={countries.length}
-        currentPage={currentPage}
-        pagination={pagination}
-      />
 
+      <div className='pagination'>
+        <div className='cont'>
+              <Paginados
+                 countriesPerPage={countriesPerPage}
+                 filteredCountries={countries.length}
+                 currentPage={currentPage}
+                 pagination={pagination}
+             />
+        </div>
+      </div>
       
     </div>
   )
