@@ -6,7 +6,7 @@ export default function Paginados ({ countriesPerPage,
 }) {
   const pageNumbers = []
 
-  for (let i = 0; i <= Math.ceil(filteredCountries / countriesPerPage); i++) {
+  for (let i = 0; i < Math.ceil(filteredCountries / countriesPerPage); i++) {
     pageNumbers.push(i + 1)
   }
 

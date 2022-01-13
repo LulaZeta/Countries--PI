@@ -35,8 +35,7 @@ export default function Countries () {
         
       {currentCountries.map(el => {
         return (
-            
-           
+         
             
                 <Country
                 name={el.name}
@@ -44,10 +43,8 @@ export default function Countries () {
                 continents={el.continents}
                 id={el.id}
                 />
-       
-        
-        )
-      })
+                )
+         })
       }
         
       <div className='pagination'>
@@ -58,9 +55,9 @@ export default function Countries () {
                  currentPage={currentPage}
                  pagination={pagination}
              />
-        
+        </div>
       </div>
       
-    </div>
+
   )
 }

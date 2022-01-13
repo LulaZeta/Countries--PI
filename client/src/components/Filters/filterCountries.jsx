@@ -6,7 +6,7 @@ import { filterCountries  } from "../../redux/actions";
 
 export default function FilterCountries() {
     const dispatch = useDispatch()
-    const pais = useSelector((state)=> state.filteredCountries)
+    const pais = useSelector((state)=> state.countries)
    
     
  

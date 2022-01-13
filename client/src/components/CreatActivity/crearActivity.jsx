@@ -185,7 +185,7 @@ export default function CreatActivity (){
                          <div className='select' >
                             <select required onChange={(e) => handleSelect(e)}>
                                 
-                                 <option>seleccionar pais</option>
+                                 <option>Seleccionar pais</option>
                                     { pais.map((el) => (
                                      <option value={el.name}>{el.name}</option>
                                      ))
