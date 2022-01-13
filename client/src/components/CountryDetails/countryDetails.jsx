@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { countryDetails } from "../../redux/actions"; 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 
 export default function CountryDetails(props) {
@@ -19,6 +19,11 @@ export default function CountryDetails(props) {
 
     const myCountry = useSelector((state)=>state.detail)
     return <div>
+        <div>
+            <Link to='/home'><button>Volver</button></Link>
+        
+            <Link to='/home/activity'><button>CREAR ACTIVIDAD</button></Link>
+        </div>
         {
             myCountry ?
             <div>

@@ -19,6 +19,7 @@ export default function FilterCountries() {
     return(
         <div>
             <select name="select" onChange={handleFilterCountries}>
+                <option>seleccionar pais</option>
                {pais.map((el)=> 
                 <option value ={el.name} >{el.name}</option>
                 ) }

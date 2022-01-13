@@ -45,7 +45,7 @@ export default function reducer(state = initialState, action) {
       });
       return {
         ...state,
-        filteredCountries: orderedCountries,
+        filteredCountries: [...orderedCountries],
       };
     case FILTER_CONTINENTS:
       const continente = state.countries;

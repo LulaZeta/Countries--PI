@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity } from "../../redux/actions";
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 
 export default function CreatActivity (){
@@ -49,10 +49,6 @@ export default function CreatActivity (){
         return errors;
     }
     
-
-
-
-
 
     function handleChange(e) {
         setInput({
@@ -122,6 +118,9 @@ export default function CreatActivity (){
 
 
     return (<div> 
+                <div>
+                    <Link to='/home'><button>Volver</button></Link>
+                </div>
                 <h2>Crear actividad</h2>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <div>
@@ -205,7 +204,7 @@ export default function CreatActivity (){
                      {input.country.map(el => 
                      <div className="">
                          <p>{el}</p>
-                            <button className="" onClick={() => handleDelete(el)}>x</button>
+                            <button className="delete" onClick={() => handleDelete(el)}>x</button>
                      </div>
                     )}
                       </div>)

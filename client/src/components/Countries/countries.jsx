@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Paginados from '../Paginado/Paginados'
 import Country from '../Country/country'
+import './countries.css'
+import { Link } from 'react-router-dom'
 
 
 
@@ -25,27 +27,38 @@ export default function Countries () {
 
   return (
     <div>
-      
+        <div>
+        <Link to='/home/activity'>
+			<button className='crear'>Crear actividad</button>
+		</Link>
+        </div>
+        
       {currentCountries.map(el => {
         return (
-          <Country
-            name={el.name}
-            image={el.image}
-            continents={el.continents}
-            id={el.id}
-          />
+            
+           
+            
+                <Country
+                name={el.name}
+                image={el.image}
+                continents={el.continents}
+                id={el.id}
+                />
+       
+        
         )
-      })}
-
+      })
+      }
+        
       <div className='pagination'>
-        <div className='cont'>
+        
               <Paginados
                  countriesPerPage={countriesPerPage}
                  filteredCountries={countries.length}
                  currentPage={currentPage}
                  pagination={pagination}
              />
-        </div>
+        
       </div>
       
     </div>
