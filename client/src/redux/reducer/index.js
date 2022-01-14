@@ -8,6 +8,7 @@ import {
   COUNTRY_DETAILS,
   GET_ACTIVITY,
   POST_ACTIVITY,
+  GET_ALL_ACTIVITY,
 } from "../actions";
 
 const initialState = {
@@ -25,7 +26,6 @@ export default function reducer(state = initialState, action) {
         countries: action.payload,
         filteredCountries: action.payload,
         detail: action.payload,
-        activity: action.payload,
       };
     case SEARCH_COUNTRIES:
       return {
@@ -34,7 +34,7 @@ export default function reducer(state = initialState, action) {
       };
     case SORT:
       let orderedCountries = [...state.countries]; //hacemos una copia en memoria, despues lo ordenamos
-      orderedCountries = orderedCountries.sort((a, b) => {
+      orderedCountries = state.countries.sort((a, b) => {
         if (a.name < b.name) {
           return action.payload === ASCENDENTE ? -1 : 1;
         }
@@ -47,6 +47,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: [...orderedCountries],
       };
+
     case FILTER_CONTINENTS:
       const continente = state.countries;
       const statusFiltered =
@@ -69,15 +70,21 @@ export default function reducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
-
+    case GET_ALL_ACTIVITY:
+      return {
+        ...state,
+        activity: action.payload,
+      };
     case POST_ACTIVITY:
       return {
         ...state,
       };
     case GET_ACTIVITY:
+      let actividadFiltrada = actividadFiltrada.filter(
+        (el) => el.name === action.payload
+      );
       return {
-        ...state,
-        activity: action.payload,
+        activity: actividadFiltrada,
       };
     default:
       return state;

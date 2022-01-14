@@ -8,6 +8,7 @@ export const COUNTRY_DETAILS = "COUNTRY_DETAILS";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const GET_ALL_ACTIVITY = "GET_ALL_ACTIVITY";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -74,25 +75,44 @@ export function countryDetails(id) {
   };
 }
 
-export function getActivity() {
-  return async function (dispatch) {
-    var json = await axios("http://localhost:3001/activity");
-    return dispatch({
-      type: "GET_ACTIVITY",
-      payload: json.data,
-    });
-  };
-}
-
 export function postActivity(payload) {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/activity",
+      "http://localhost:3001/activity/",
       payload
     );
     dispatch({
       type: "POST_ACTIVITY",
       payload: response.data,
     });
+  };
+}
+
+export function getAllActivities() {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get("http://localhost:3001/activity/");
+      return dispatch({
+        type: "GET_ALL_ACTIVITY",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getActivity(name) {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get(
+        "http://localhost:3001/activity/?name=" + name
+      );
+      return dispatch({
+        type: "GET_ACTIVITY",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

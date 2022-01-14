@@ -11,7 +11,7 @@ export default function Countries () {
   let countries = useSelector(state => state.filteredCountries)
 
 
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1)  //mi estado local, con la primer pagina q se renderiza
      /* eslint-disable*/
   const [countriesPerPage, setCountriesPerPage] = useState(10)
     /* eslint-enable*/
@@ -25,7 +25,7 @@ export default function Countries () {
     setCurrentPage(pageNumber)
   }
 
-  return (
+  return ( 
     <div>
         <div>
         <Link to='/home/activity'>

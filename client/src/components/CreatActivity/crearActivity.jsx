@@ -54,6 +54,7 @@ export default function CreatActivity (){
         setInput({
             ...input, [e.target.name]: e.target.value,
         })
+        
         setErrors (validate({
             ...input,
             [e.target.name] : e.target.value 

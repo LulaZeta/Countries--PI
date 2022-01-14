@@ -9,6 +9,7 @@ export default function SearchBar(){
     function onSubmit(e) {
         e.preventDefault()
         dispatch(searchCountries(search))
+        setSearch('')
     }
 
     function onInputChange(e){

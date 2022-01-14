@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
+import './landingPage.css'
 
 
 export default function LandingPage () {
@@ -8,7 +8,7 @@ export default function LandingPage () {
         <div className="landing">
             <h1>Bienvenid@</h1>
             <Link to='/Home' >
-                <button>Ingresar</button>
+                <button className="button">Ingresar</button>
             </Link>
             
         </div>

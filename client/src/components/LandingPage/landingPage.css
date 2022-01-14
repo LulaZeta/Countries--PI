@@ -1,0 +1,14 @@
+.landing {
+  background-image: url("./11044883-mapa-antiguo-de-tartaria-china-y-japón-por-abraham-ortelius-circa-1570.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: auto;
+}
+.button {
+  width: 200px;
+  border: 1px solid white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 12px;
+  font-size: 24px;
+}

@@ -45,11 +45,11 @@ router.get("/countries", async (req, res, next) => {
   let allCountries = await getApiInfo();
 
   const dbCountries = await Country.count();
-
+  let countries;
   if (dbCountries === 0) {
-    let countries = await Country.bulkCreate(allCountries);
+    countries = await Country.bulkCreate(allCountries);
   }
-  let countries = await getDb();
+  countries = await getDb();
   try {
     if (name) {
       let countryName = await Country.findAll({
@@ -73,7 +73,7 @@ router.get("/countries", async (req, res, next) => {
         ? res.status(200).send(countryName)
         : res.status(404).send("No se existe el pais buscado");
     } else {
-      res.status(200).send(countries);
+      res.status(201).send(countries);
     }
   } catch (error) {
     next(error);
@@ -114,7 +114,7 @@ router.get("/countries/:id", async (req, res) => {
 //       next(error);
 //     });
 // });
-//  -------  TABLA RELACIONAL PRUEBAS ----------
+//  ------- ----------
 
 router.post(
   "/countries/:countryId/activity/:activityId",
@@ -133,14 +133,37 @@ router.post(
 
 // -----  ACTIVITY   ------------------
 
-router.get("/activity", (req, res, next) => {
-  return Activities.findAll()
-    .then((activities) => {
-      res.status(201).send(activities);
-    })
-    .catch((error) => {
-      next(error);
-    });
+// router.get("/activity", (req, res, next) => {
+//   return Activities.findAll()
+//     .then((activities) => {
+//       res.status(201).send(activities);
+//     })
+//     .catch((error) => {
+//       next(error);
+//     });
+// });
+
+router.get("/activity", async (req, res, next) => {
+  const { name } = req.query;
+  try {
+    let act;
+    if (name) {
+      act = await Activities.findAll({
+        where: {
+          name: name,
+        },
+      });
+
+      act.length
+        ? res.status(200).send(act)
+        : res.status(404).send("No se encuentra ninguna actividad");
+    } else {
+      act = await Activities.findAll();
+      res.status(201).send(act);
+    }
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/activity/:id", async (req, res, next) => {
