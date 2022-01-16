@@ -105,56 +105,30 @@ export default function reducer(state = initialState, action) {
       };
 
     case FILTER_ACTIVITY:
-      const filtrado = state.activity;
-      const filtradoXName =
-        action.payload === state.activity
-          ? filtrado
-          : filtrado.filter((e) => e.name === action.payload);
+      const allCoun = state.countries;
+      const filterActivi =
+        action.payload === "todos"
+          ? state.countries
+          : allCoun.filter(
+              (c) =>
+                c.activities &&
+                c.activities.filter((a) => a.name === action.payload).length
+            );
       return {
         ...state,
-        filteredCountries: filtradoXName,
+        filteredCountries: filterActivi,
       };
 
-    // const activitiesbycountries = state.actividad;
-    // const countriesAll = state.countries;
-    // console.log(
-    //   "FILTER_ACTIVITY - activitybycountries -----:",
-    //   activitiesbycountries
-    // );
-
-    // const filt =
-    //   action.payload === "todos"
-    //     ? countriesAll
-    //     : activitiesbycountries
-    //         .filter((a) => a.name === action.payload)[0]
-    //         .countries.map((e) => e);
-    // console.log("FILT__:", filt);
+    // const filtrado = state.activity;
+    // const filtradoXName =
+    //   action.payload === state.activity
+    //     ? filtrado
+    //     : filtrado.filter((e) => e.name === action.payload);
     // return {
     //   ...state,
-    //   filteredCountries: filt,
+    //   activity: filtradoXName,
     // };
 
-    // case FILTER_ACTIVITY:
-    //   const acti = state.activity;
-
-    //   const filt = acti
-    //     .filter((a) => a.name === action.payload)[0]
-    //     .countries.map((e) => e);
-
-    // countriesAll.filter((el) =>
-    //   el.activities.name?.includes(name ===action.payload)
-    // );
-
-    // return {
-    //   ...state,
-    //   filteredCountries: filt,
-    // };
-
-    // case GET_ACTIVITY:
-    //   return {
-    //     ...state,
-    //     activity: action.payload,
-    //   };
     default:
       return state;
   }
