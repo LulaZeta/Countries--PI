@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 export default function Order() {
     const dispatch = useDispatch()
     const [order, setOrder] =useState('')
+    
 
     useEffect(() => {
         dispatch(sort(order))
@@ -17,6 +18,7 @@ export default function Order() {
 
     return(
     <select name="select" onChange={onSelectChange}>
+        <option>Ordenar por abc</option>
         <option value={ASCENDENTE}>ascendente</option>
          <option value={DESCENDENTE}>descendente</option>
     </select>

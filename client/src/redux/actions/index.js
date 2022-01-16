@@ -9,6 +9,8 @@ export const GET_ACTIVITY = "GET_ACTIVITY";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_ALL_ACTIVITY = "GET_ALL_ACTIVITY";
+export const FILTER_ACTIVITY = "FILTER_ACTIVITY";
+export const POPULATION_ORDER = "POPULATION_ORDER";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -61,6 +63,21 @@ export function filterCountries(payload) {
     payload: payload,
   };
 }
+// export function filterActivity(payload) {
+//   return {
+//     type: FILTER_ACTIVITY,
+//     payload: payload,
+//   };
+// }
+export function filterPopulation(order) {
+  return {
+    type: POPULATION_ORDER,
+    payload: order,
+  };
+}
+
+///////
+
 export function countryDetails(id) {
   return async function (dispatch) {
     try {
@@ -101,14 +118,12 @@ export function getAllActivities() {
     }
   };
 }
-export function getActivity(name) {
+export function filterActivity() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(
-        "http://localhost:3001/activity/?name=" + name
-      );
+      var json = await axios.get("http://localhost:3001/activity/");
       return dispatch({
-        type: "GET_ACTIVITY",
+        type: "FILTER_ACTIVITY",
         payload: json.data,
       });
     } catch (error) {

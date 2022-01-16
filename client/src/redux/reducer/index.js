@@ -6,9 +6,11 @@ import {
   FILTER_CONTINENTS,
   FILTER_COUNTRIES,
   COUNTRY_DETAILS,
-  GET_ACTIVITY,
   POST_ACTIVITY,
   GET_ALL_ACTIVITY,
+  FILTER_ACTIVITY,
+  GET_ACTIVITY,
+  POPULATION_ORDER,
 } from "../actions";
 
 const initialState = {
@@ -33,8 +35,8 @@ export default function reducer(state = initialState, action) {
         filteredCountries: action.payload,
       };
     case SORT:
-      let orderedCountries = [...state.countries]; //hacemos una copia en memoria, despues lo ordenamos
-      orderedCountries = state.countries.sort((a, b) => {
+      let orderedCountries = [...state.filteredCountries];
+      orderedCountries = state.filteredCountries.sort((a, b) => {
         if (a.name < b.name) {
           return action.payload === ASCENDENTE ? -1 : 1;
         }
@@ -65,27 +67,65 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: paisFiltrado,
       };
+    case POPULATION_ORDER:
+      let orderedPop = [...state.filteredCountries];
+      orderedPop = state.filteredCountries.sort((a, b) => {
+        if (a.population < b.population) {
+          return action.payload === ASCENDENTE ? -1 : 1;
+        }
+        if (a.population > b.population) {
+          return action.payload === ASCENDENTE ? 1 : -1;
+        }
+        return 0;
+      });
+      return {
+        ...state,
+        filteredCountries: [...orderedPop],
+      };
+
     case COUNTRY_DETAILS:
       return {
         ...state,
         detail: action.payload,
       };
+    case POST_ACTIVITY:
+      return {
+        ...state,
+      };
+
     case GET_ALL_ACTIVITY:
       return {
         ...state,
         activity: action.payload,
       };
-    case POST_ACTIVITY:
+    case FILTER_ACTIVITY:
+      const filtrado = state.activity;
       return {
         ...state,
+        activity: action.payload === filtrado.name,
       };
-    case GET_ACTIVITY:
-      let actividadFiltrada = actividadFiltrada.filter(
-        (el) => el.name === action.payload
-      );
-      return {
-        activity: actividadFiltrada,
-      };
+
+    // case FILTER_ACTIVITY:
+    //   const acti = state.activity;
+
+    //   const filt = acti
+    //     .filter((a) => a.name === action.payload)[0]
+    //     .countries.map((e) => e);
+
+    // countriesAll.filter((el) =>
+    //   el.activities.name?.includes(name ===action.payload)
+    // );
+
+    // return {
+    //   ...state,
+    //   filteredCountries: filt,
+    // };
+
+    // case GET_ACTIVITY:
+    //   return {
+    //     ...state,
+    //     activity: action.payload,
+    //   };
     default:
       return state;
   }

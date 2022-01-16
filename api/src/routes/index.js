@@ -61,7 +61,7 @@ router.get("/countries", async (req, res, next) => {
         include: [
           {
             model: Activities,
-            attributes: ["name", "difficulty", "duration", "season"], // se relacionan las actividades de cada país
+            attributes: ["name"], // se relacionan las actividades de cada país
             through: {
               attributes: [],
             },
@@ -144,42 +144,38 @@ router.post(
 // });
 
 router.get("/activity", async (req, res, next) => {
-  const { name } = req.query;
   try {
-    let act;
-    if (name) {
-      act = await Activities.findAll({
-        where: {
-          name: name,
+    act = await Activities.findAll({
+      include: [
+        {
+          model: Country,
+          attributes: ["name"], // se relacionan las actividades de cada país
+          through: {
+            attributes: [],
+          },
         },
-      });
-
-      act.length
-        ? res.status(200).send(act)
-        : res.status(404).send("No se encuentra ninguna actividad");
-    } else {
-      act = await Activities.findAll();
-      res.status(201).send(act);
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get("/activity/:id", async (req, res, next) => {
-  const id = req.params.id;
-
-  try {
-    let act = await Activities.findOne({
-      where: {
-        id: id,
-      },
+      ],
     });
-    return res.status(200).json(act);
+    res.status(201).send(act);
   } catch (error) {
     next(error);
   }
 });
+
+// router.get("/activity/:id", async (req, res, next) => {
+//   const id = req.params.id;
+
+//   try {
+//     let act = await Activities.findOne({
+//       where: {
+//         id: id,
+//       },
+//     });
+//     return res.status(200).json(act);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 router.post("/activity", async (req, res, next) => {
   const { name, difficulty, duration, season, country } = req.body;
