@@ -26,8 +26,8 @@ return(
             <div>
                <select name= "select" onChange={e => handleOrderP(e)} >
                     <option>Ordenar por población</option>
-                    <option value={ASCENDENTE}>Poblacion Asc</option>
-                    <option value={DESCENDENTE}>Poblacion Des</option>
+                    <option value={ASCENDENTE}>Menor Poblacion</option>
+                    <option value={DESCENDENTE}>Mayor Poblacion</option>
                 </select>
             </div>
 )

@@ -6,7 +6,7 @@ export default function FilterActivity() {
     const dispatch = useDispatch()
     const act = useSelector((state) => state.activity)
     console.log("Estas son las ACTIVIDADES que me traiga por estado",act)
- 
+   
     
     function handleFilterActivity(e){
         e.preventDefault();
@@ -23,7 +23,7 @@ export default function FilterActivity() {
         return(
         <div>
             <select name="select" onChange={handleFilterActivity}>
-                <option>Buscar actividad</option>
+                <option >Buscar actividad</option>
 
                {
                act.map((el) => (<option value ={el.name} >{el.name}</option>)) 

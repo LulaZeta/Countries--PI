@@ -144,24 +144,46 @@ router.post(
 // });
 
 router.get("/activity", async (req, res, next) => {
+  const { name } = req.body;
   try {
-    act = await Activities.findAll({
-      include: [
-        {
-          model: Country,
-          attributes: ["name"], // se relacionan las actividades de cada país
-          through: {
-            attributes: [],
-          },
+    let act;
+    if (name) {
+      act = await Activities.findAll({
+        where: {
+          name: name,
         },
-      ],
-    });
-    res.status(201).send(act);
+        include: [
+          {
+            model: Country,
+            attribute: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      });
+
+      act.length
+        ? res.status(200).send(act)
+        : res.status(404).send("No se encuentra ninguna actividad");
+    } else {
+      act = await Activities.findAll({
+        include: [
+          {
+            model: Country,
+            attribute: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      });
+      res.status(201).send(act);
+    }
   } catch (error) {
     next(error);
   }
 });
-
 // router.get("/activity/:id", async (req, res, next) => {
 //   const id = req.params.id;
 

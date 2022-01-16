@@ -33,7 +33,9 @@ export default function Countries () {
 		</Link>
         </div>
         
-      {currentCountries.map(el => {
+      {
+      
+      currentCountries.map(el => {
         return (
          
             
@@ -56,6 +58,7 @@ export default function Countries () {
                  pagination={pagination}
              />
         </div>
+        
       </div>
       
 

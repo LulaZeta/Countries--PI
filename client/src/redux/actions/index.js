@@ -118,10 +118,10 @@ export function getAllActivities() {
     }
   };
 }
-export function filterActivity() {
+export function filterActivity(name) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/activity/");
+      var json = await axios.get("http://localhost:3001/activity/" + name);
       return dispatch({
         type: "FILTER_ACTIVITY",
         payload: json.data,

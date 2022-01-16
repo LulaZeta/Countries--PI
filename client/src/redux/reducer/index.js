@@ -29,11 +29,13 @@ export default function reducer(state = initialState, action) {
         filteredCountries: action.payload,
         detail: action.payload,
       };
+
     case SEARCH_COUNTRIES:
       return {
         ...state,
         filteredCountries: action.payload,
       };
+
     case SORT:
       let orderedCountries = [...state.filteredCountries];
       orderedCountries = state.filteredCountries.sort((a, b) => {
@@ -60,6 +62,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: statusFiltered,
       };
+
     case FILTER_COUNTRIES:
       const pais = state.countries;
       const paisFiltrado = pais.filter((el) => el.name === action.payload);
@@ -67,6 +70,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: paisFiltrado,
       };
+
     case POPULATION_ORDER:
       let orderedPop = [...state.filteredCountries];
       orderedPop = state.filteredCountries.sort((a, b) => {
@@ -88,6 +92,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+
     case POST_ACTIVITY:
       return {
         ...state,
@@ -98,11 +103,16 @@ export default function reducer(state = initialState, action) {
         ...state,
         activity: action.payload,
       };
+
     case FILTER_ACTIVITY:
       const filtrado = state.activity;
+      const filtradoXName =
+        action.payload === state.activity
+          ? filtrado
+          : filtrado.filter((e) => e.name === action.payload);
       return {
         ...state,
-        activity: action.payload === filtrado.name,
+        activity: filtradoXName,
       };
 
     // case FILTER_ACTIVITY:
