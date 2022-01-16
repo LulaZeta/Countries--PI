@@ -12,10 +12,7 @@ export default function FilterActivity() {
         e.preventDefault();
         dispatch(filterActivity( e.target.value ))
     }
-    //  useEffect(() => {
-    //      dispatch(filterActivity())
-    //  }, [dispatch])
-   
+    
     useEffect(()=>{
         dispatch( getAllActivities())
     },[dispatch])
