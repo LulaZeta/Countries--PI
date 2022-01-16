@@ -105,10 +105,11 @@ export function postActivity(payload) {
   };
 }
 
-export function getAllActivities() {
+export function getAllActivities(payload) {
+  console.log(payload);
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/activity/");
+      var json = await axios.get("http://localhost:3001/activity/", payload);
       return dispatch({
         type: "GET_ALL_ACTIVITY",
         payload: json.data,
@@ -118,10 +119,11 @@ export function getAllActivities() {
     }
   };
 }
-export function filterActivity(name) {
+export function filterActivity(payload) {
+  console.log(payload);
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/activity/" + name);
+      var json = await axios.get("http://localhost:3001/activity/", payload);
       return dispatch({
         type: "FILTER_ACTIVITY",
         payload: json.data,

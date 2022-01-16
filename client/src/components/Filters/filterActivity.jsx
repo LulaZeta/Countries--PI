@@ -23,10 +23,10 @@ export default function FilterActivity() {
         return(
         <div>
             <select name="select" onChange={handleFilterActivity}>
-                <option >Buscar actividad</option>
+                <option value="todos" >Actividades</option>
 
                {
-               act.map((el) => (<option value ={el.name} >{el.name}</option>)) 
+               act?.length && act.map((el) => (<option value ={el.name} >{el.name}</option>)) 
                 }
             </select>
         </div>

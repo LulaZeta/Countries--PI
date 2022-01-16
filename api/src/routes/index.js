@@ -152,15 +152,7 @@ router.get("/activity", async (req, res, next) => {
         where: {
           name: name,
         },
-        include: [
-          {
-            model: Country,
-            attribute: ["name"],
-            through: {
-              attributes: [],
-            },
-          },
-        ],
+        include: Country,
       });
 
       act.length
@@ -168,15 +160,7 @@ router.get("/activity", async (req, res, next) => {
         : res.status(404).send("No se encuentra ninguna actividad");
     } else {
       act = await Activities.findAll({
-        include: [
-          {
-            model: Country,
-            attribute: ["name"],
-            through: {
-              attributes: [],
-            },
-          },
-        ],
+        include: Country,
       });
       res.status(201).send(act);
     }
