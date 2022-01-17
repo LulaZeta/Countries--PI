@@ -63,20 +63,20 @@ export function filterCountries(payload) {
     payload: payload,
   };
 }
+
 export function filterActivity(payload) {
   return {
     type: FILTER_ACTIVITY,
     payload: payload,
   };
 }
+
 export function filterPopulation(order) {
   return {
     type: POPULATION_ORDER,
     payload: order,
   };
 }
-
-///////
 
 export function countryDetails(id) {
   return async function (dispatch) {

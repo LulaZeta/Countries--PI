@@ -1,8 +1,6 @@
-import React, {useState} from "react";
-import { useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import {useDispatch} from "react-redux"
 import {filterPopulation} from "../../redux/actions"
-
 import { ASCENDENTE, DESCENDENTE } from "../contantes/sort"
 
 export default function FilterPopulation(){
@@ -12,7 +10,8 @@ export default function FilterPopulation(){
 
   useEffect(()=>{
     dispatch(filterPopulation(order))
-  },[order])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+},[order])
 
  function handleOrderP(e) {
   e.preventDefault()

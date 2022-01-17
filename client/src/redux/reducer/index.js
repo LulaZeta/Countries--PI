@@ -9,7 +9,6 @@ import {
   POST_ACTIVITY,
   GET_ALL_ACTIVITY,
   FILTER_ACTIVITY,
-  GET_ACTIVITY,
   POPULATION_ORDER,
 } from "../actions";
 

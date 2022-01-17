@@ -10,6 +10,7 @@ export default function Order() {
 
     useEffect(() => {
         dispatch(sort(order))
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [order])
 
     function onSelectChange(e){
