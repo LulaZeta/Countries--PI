@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage/landingPage";
 import Home from "./components/Home/home";
 import CountryDetails from "./components/CountryDetails/countryDetails";
 import CreatActivity from "./components/CreatActivity/crearActivity";
+import ActivitiesDetails from "./components/CreatActivity/activividad";
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/home/:id" element={<CountryDetails />}></Route>
+          <Route
+            path="/home/activity/:id"
+            element={<ActivitiesDetails />}
+          ></Route>
           <Route path="/home/activity" element={<CreatActivity />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/" element={<LandingPage />}></Route>

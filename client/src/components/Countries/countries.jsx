@@ -26,13 +26,13 @@ export default function Countries () {
   }
 
   return ( 
-    <div>
+    <div >
         <div>
         <Link to='/home/activity'>
-			<button className='crear'>Crear actividad</button>
+			<button className='bcrear'>Crear actividad</button>
 		</Link>
         </div>
-        
+       <div className='main'>
       {
       
       currentCountries.map(el => {
@@ -48,7 +48,7 @@ export default function Countries () {
                 )
          })
       }
-        
+        </div> 
       <div className='pagination'>
         
               <Paginados

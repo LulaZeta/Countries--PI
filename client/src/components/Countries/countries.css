@@ -1,24 +1,20 @@
-ul.pagination {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-ul.pagination li {
-  display: inline;
-}
-
-ul.pagination li a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-ul.pagination li a.active {
-  background-color: #4caf50;
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(206, 205, 205);
   color: white;
+  list-style: none;
+  cursor: pointer;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
-ul.pagination li a:hover:not(.active) {
-  background-color: rgb(221, 221, 221);
+.sal:hover {
+  background-color: white;
+  color: black;
 }

@@ -11,6 +11,8 @@ export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_ALL_ACTIVITY = "GET_ALL_ACTIVITY";
 export const FILTER_ACTIVITY = "FILTER_ACTIVITY";
 export const POPULATION_ORDER = "POPULATION_ORDER";
+export const MY_ACTIVITY = "MY_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -119,17 +121,23 @@ export function getAllActivities(payload) {
     }
   };
 }
-// export function filterActivity(payload) {
-//   console.log(payload);
-//   return async function (dispatch) {
-//     try {
-//       var json = await axios.get("http://localhost:3001/activity/", payload);
-//       return dispatch({
-//         type: "FILTER_ACTIVITY",
-//         payload: json.data,
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// }
+export function myActivity(id) {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get("http://localhost:3001/activity/" + id);
+      return dispatch({
+        type: "MY_ACTIVITY",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function deleteActivity(id) {
+  return {
+    type: DELETE_ACTIVITY,
+    payload: id,
+  };
+}

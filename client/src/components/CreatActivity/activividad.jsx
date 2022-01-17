@@ -1,13 +1,49 @@
+import React from "react";
+import { useEffect } from "react";
+import { myActivity, deleteActivity } from "../../redux/actions"; 
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+export default function ActivitiesDetails({name, season, duration, difficulty, countries}) {
+    const {id} = useParams();
+    const dispatch = useDispatch()
 
-export default function Activities({name, season, duration, difficulty, countries}) {
+    useEffect(()=>{
+        dispatch(myActivity(id))
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[dispatch])
+
+    const myAct = useSelector((state)=>state.myActivity)
+    
     return <div>
-        <h1>ACTIVIDAD:</h1>
-        <h2>{name}</h2>
-        <h2>{countries.map((el)=>el.name)}</h2>
-        <h3>{season}</h3>       
-        <h4>dificultad:{difficulty}</h4>
-        <h4>duración:{duration}</h4>
-           
+        <div>
+        <Link to='/home'><button>Volver</button></Link>
+        </div>
+
+        {
+            myAct ?
+            <div>
+        <button onClick={()=>deleteActivity(myAct.id)}>BORRAR</button>
+        <h1>ACTIVIDAD: {myAct.name}</h1>
+        <h4>{myAct.season}</h4>       
+        <p>dificultad:{myAct.difficulty}</p>
+        <p>duración:{myAct.duration}</p>
+        {
+            myAct.countries?.map((el)=>{
+                return (
+                    <div>
+                    <h3>{el.name}</h3> 
+                    <img src = { el.image} alt="imagen not found" width="120px" height="80px" />
+                    <h2>Continente: {el.continents}</h2>
+                    </div>
+                )
+            })
+        }
+
+         </div> :
+        
+        <div>loading ...</div> 
+         }
     </div>
 }

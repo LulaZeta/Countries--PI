@@ -168,20 +168,23 @@ router.get("/activity", async (req, res, next) => {
     next(error);
   }
 });
-// router.get("/activity/:id", async (req, res, next) => {
-//   const id = req.params.id;
 
-//   try {
-//     let act = await Activities.findOne({
-//       where: {
-//         id: id,
-//       },
-//     });
-//     return res.status(200).json(act);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.get("/activity/:id", async (req, res, next) => {
+  const id = req.params.id;
+
+  try {
+    let act = await Activities.findOne({
+      where: {
+        id: id,
+      },
+      include: Country,
+    });
+
+    return res.status(200).json(act);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post("/activity", async (req, res, next) => {
   const { name, difficulty, duration, season, country } = req.body;

@@ -10,6 +10,8 @@ import {
   GET_ALL_ACTIVITY,
   FILTER_ACTIVITY,
   POPULATION_ORDER,
+  MY_ACTIVITY,
+  DELETE_ACTIVITY,
 } from "../actions";
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
   filteredCountries: [],
   detail: [],
   activity: [],
+  myActivity: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -118,15 +121,18 @@ export default function reducer(state = initialState, action) {
         filteredCountries: filterActivi,
       };
 
-    // const filtrado = state.activity;
-    // const filtradoXName =
-    //   action.payload === state.activity
-    //     ? filtrado
-    //     : filtrado.filter((e) => e.name === action.payload);
-    // return {
-    //   ...state,
-    //   activity: filtradoXName,
-    // };
+    case MY_ACTIVITY:
+      return {
+        ...state,
+        myActivity: action.payload,
+      };
+
+    case DELETE_ACTIVITY:
+      let deleteA = state.activity.filter((el) => el.id !== action.payload);
+      return {
+        ...state,
+        myActivity: deleteA,
+      };
 
     default:
       return state;

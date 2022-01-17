@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity } from "../../redux/actions";
 import { Link, useNavigate} from 'react-router-dom';
+import './crearActivity.css'
 
 
 export default function CreatActivity (){
@@ -26,14 +27,13 @@ export default function CreatActivity (){
 
 
     function validate(input) {
+        let nameTest =/^[a-zA-ZA-y\s]{3,80}$/; //solo letras de 3 a 80 caracteres
         let errors = {} ;
+
         if (!input.name) {
             errors.name = 'Nombre de Actividad Requerido'
-        // } else {
-        //     for(var i=0; i< activities.lenght; i ++){
-        //         if(activities.name[i] === input.name) errors.name = 'Actividad ya creada'
-        //     }
-        }
+        }else if(!nameTest.test(input.name.trim())) {
+            errors.name = 'No se permiten numeros , solo letras de 3 a 80 caracteres'}     
         if(!input.difficulty) {
             errors.difficulty = 'Completa campo de dificultad'
         }
@@ -43,9 +43,7 @@ export default function CreatActivity (){
         if(!input.season) {
             errors.season= 'elige una estación del año!!!'
         }
-        if(input.country.lenght < 1){
-            errors.country ='¿dónde ocurre tu actividad?'
-        }
+      
         return errors;
     }
     
@@ -107,7 +105,7 @@ export default function CreatActivity (){
             country : [...input.country, e.target.value]
         })
         
-        console.log(input)
+        //console.log(input)
         
     }
     function handleDelete (el) {
@@ -118,7 +116,7 @@ export default function CreatActivity (){
       }
 
 
-    return (<div> 
+    return (<div className="crear" > 
                 <div>
                     <Link to='/home'><button>Volver</button></Link>
                 </div>
@@ -208,6 +206,7 @@ export default function CreatActivity (){
                             <button className="delete" onClick={() => handleDelete(el)}>x</button>
                      </div>
                     )}
+            
                       </div>)
                
                      
