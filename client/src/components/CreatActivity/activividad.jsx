@@ -12,6 +12,7 @@ export default function ActivitiesDetails({name, season, duration, difficulty, c
     useEffect(()=>{
         dispatch(myActivity(id))
          // eslint-disable-next-line react-hooks/exhaustive-deps
+
     },[dispatch])
 
     const myAct = useSelector((state)=>state.myActivity)
@@ -35,7 +36,7 @@ export default function ActivitiesDetails({name, season, duration, difficulty, c
                     <div>
                     <h3>{el.name}</h3> 
                     <img src = { el.image} alt="imagen not found" width="120px" height="80px" />
-                    <h2>Continente: {el.continents}</h2>
+                    <p>Continente: {el.continents}</p>
                     </div>
                 )
             })

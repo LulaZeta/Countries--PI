@@ -29,11 +29,11 @@ export default function CountryDetails(props) {
             myCountry ?
             <div>
 
-        <h1>{ myCountry.name}</h1>
+        <h1>{ myCountry.name} - {myCountry.id}</h1>
         <img src = { myCountry.image} alt="imagen not found" width="320px" height="200px" />
         <h2>Continente: {myCountry.continents}</h2>
         <h2>Capital: {myCountry.capital}</h2>
-        <h3>Código de País: {myCountry.id}</h3>
+        
         <p>Subregión: {myCountry.subregion}</p>
         <p>Área: {myCountry.area} Km²</p>
         <p>Población: {myCountry.population} habitantes</p>
@@ -44,10 +44,12 @@ export default function CountryDetails(props) {
         myCountry.activities?.map((el) => {
             return (        
                 <div className= "activity"> 
+                <Link to={"/home/activity/" + el.id}>
                 <h3>{el.name}</h3> 
-                <h3>dificultad: {el.difficulty}</h3> 
-                <h3>duración: {el.duration} </h3>
-                <h3>temporada: {el.season}</h3>
+                </Link>
+                <p>dificultad: {el.difficulty}</p> 
+                <p>duración: {el.duration} </p>
+                <p>temporada: {el.season}</p>
                 </div>
                 )
         }) 
