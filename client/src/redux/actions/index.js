@@ -80,6 +80,21 @@ export function filterPopulation(order) {
   };
 }
 
+// export function countryDetails(id) {
+//   return function (dispatch) {
+//     return axios
+//       .get("http://localhost:3001/countries/" + id)
+//       .then((response) => {
+//         dispatch({
+//           type: "COUNTRY_DETAILS",
+//           payload: response.data,
+//         });
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
+// }
 export function countryDetails(id) {
   return async function (dispatch) {
     try {
@@ -136,8 +151,15 @@ export function myActivity(id) {
 }
 
 export function deleteActivity(id) {
-  return {
-    type: DELETE_ACTIVITY,
-    payload: id,
+  return async function (dispatch) {
+    try {
+      var json = await axios.delete("http://localhost:3001/activity/" + id);
+      return dispatch({
+        type: DELETE_ACTIVITY,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

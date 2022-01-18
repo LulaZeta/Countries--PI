@@ -1,21 +1,27 @@
-import React from "react";
-import { useEffect } from "react";
+import React, {useEffect} from "react";
 import { myActivity, deleteActivity } from "../../redux/actions"; 
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 
 export default function ActivitiesDetails({name, season, duration, difficulty, countries}) {
     const {id} = useParams();
     const dispatch = useDispatch()
+    const myAct = useSelector((state)=>state.activity)
+
 
     useEffect(()=>{
         dispatch(myActivity(id))
          // eslint-disable-next-line react-hooks/exhaustive-deps
-
     },[dispatch])
 
-    const myAct = useSelector((state)=>state.myActivity)
+   function handleDelete (e){
+       e.preventDefault();
+       dispatch(deleteActivity(myAct.id))
+       alert("la actividad fue borrada")   
+   }
+
+   
     
     return <div>
         <div>
@@ -25,7 +31,7 @@ export default function ActivitiesDetails({name, season, duration, difficulty, c
         {
             myAct ?
             <div>
-        <button onClick={()=>deleteActivity(myAct.id)}>BORRAR</button>
+        <button onClick={(e) => handleDelete(e, myAct.id)}>BORRAR ACTIVIDAD</button>
         <h1>ACTIVIDAD: {myAct.name}</h1>
         <h4>{myAct.season}</h4>       
         <p>dificultad:{myAct.difficulty}</p>

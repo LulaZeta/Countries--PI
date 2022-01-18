@@ -15,6 +15,7 @@ export default function CountryDetails(props) {
     
     useEffect(()=>{
         dispatch(countryDetails(id))
+       
          // eslint-disable-next-line react-hooks/exhaustive-deps
     },[dispatch])
 

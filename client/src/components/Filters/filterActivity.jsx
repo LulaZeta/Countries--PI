@@ -25,6 +25,7 @@ export default function FilterActivity() {
                {
                act?.length && act.map((el) => (<option value ={el.name} >{el.name}</option>)) 
                 }
+
             </select>
         </div>
     )

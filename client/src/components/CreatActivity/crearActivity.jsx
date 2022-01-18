@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, postActivity } from "../../redux/actions";
+import { getCountries, postActivity} from "../../redux/actions";
 import { Link, useNavigate} from 'react-router-dom';
 import './crearActivity.css'
 
@@ -22,6 +22,7 @@ export default function CreatActivity (){
     })  
     useEffect(()=> {
         dispatch(getCountries());
+     
     }, [dispatch])
 
 

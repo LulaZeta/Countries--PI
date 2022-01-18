@@ -19,7 +19,7 @@ const initialState = {
   filteredCountries: [],
   detail: [],
   activity: [],
-  myActivity: [],
+  //myActivity: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -124,14 +124,13 @@ export default function reducer(state = initialState, action) {
     case MY_ACTIVITY:
       return {
         ...state,
-        myActivity: action.payload,
+        activity: action.payload,
       };
 
     case DELETE_ACTIVITY:
-      let deleteA = state.activity.filter((el) => el.id !== action.payload);
       return {
         ...state,
-        myActivity: deleteA,
+        activity: action.payload,
       };
 
     default:
