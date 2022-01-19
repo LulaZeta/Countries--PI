@@ -1,3 +1,9 @@
+body {
+  background-image: url(./verde.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+}
+
 .main {
   display: grid;
   grid-template-columns: 1fr 1fr;

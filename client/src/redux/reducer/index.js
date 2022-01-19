@@ -15,8 +15,8 @@ import {
 } from "../actions";
 
 const initialState = {
-  countries: [],
   filteredCountries: [],
+  countries: [],
   detail: [],
   activity: [],
   //myActivity: [],

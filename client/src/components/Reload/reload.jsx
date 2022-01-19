@@ -14,15 +14,19 @@ export default function ReLoad () {
         dispatch(getCountries())
     },[dispatch])
 
-    function handleClick(e){
-        e.preventDefault();
-        dispatch(getCountries())
-    }
+    // function handleClick(e){
+    //     e.preventDefault();
+    //     dispatch(getCountries())
+    // }
+    function refreshPage(){
+        window.location.reload(false)
+      }
+     
 
     return(
         <div>
 
-            <button onClick = {e=> {handleClick(e)}} >
+            <button onClick = {e=> {refreshPage(e)}} >
                 Inicio
             </button>
         </div>

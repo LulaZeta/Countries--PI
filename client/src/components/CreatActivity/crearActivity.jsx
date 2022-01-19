@@ -5,6 +5,7 @@ import { Link, useNavigate} from 'react-router-dom';
 import './crearActivity.css'
 
 
+
 export default function CreatActivity (){
 
     const dispatch = useDispatch()
@@ -29,6 +30,8 @@ export default function CreatActivity (){
 
     function validate(input) {
         let nameTest =/^[a-zA-ZA-y\s]{3,80}$/; //solo letras de 3 a 80 caracteres
+
+        //let durationTest =/^{1,15}$/;
         let errors = {} ;
 
         if (!input.name) {
@@ -40,7 +43,10 @@ export default function CreatActivity (){
         }
         if(!input.duration) {
             errors.duration = 'completa el tiempo, ejemplo: 1hs30min' 
+           }else if(input.duration.length > 25){
+               errors.duration = 'solo se perimiten 25 carateres'
            }
+           
         if(!input.season) {
             errors.season= 'elige una estación del año!!!'
         }
@@ -126,6 +132,7 @@ export default function CreatActivity (){
                     <div>
                         <label>NOMBRE</label><br/>
                         <input  placeholder='nombre de la actividad ...'
+                        autoComplete='off'
                         type="text"
                         value={input.name}
                         name="name"
@@ -138,15 +145,15 @@ export default function CreatActivity (){
                     <div>
                         <label>DIFICULTAD</label><br/>
 
-                        <label for="1">1</label>
+                        <label htmFor="1">1</label>
                         <input type="radio" id="1" name="difficulty" value="1" onChange={(e) => handleCheck(e)}/>
-                        <label for="2">2</label>
+                        <label htmFor="2">2</label>
                         <input type="radio" id="2" name="difficulty" value="2" onChange={(e) => handleCheck(e)}/>
-                        <label for="3">3</label>
+                        <label htmFor="3">3</label>
                         <input type="radio" id="3" name="difficulty" value="3" onChange={(e) => handleCheck(e)}/>
-                        <label for="4">4</label>
+                        <label htmFor="4">4</label>
                         <input type="radio" id="4" name="difficulty" value="4" onChange={(e) => handleCheck(e)}/>
-                        <label for="5">5</label>
+                        <label htmFor="5">5</label>
                         <input type="radio" id="5" name="difficulty" value="5" onChange={(e) => handleCheck(e)}/>
                         {errors.difficulty && (
                             <p className="error">{errors.difficulty}</p>
@@ -155,25 +162,25 @@ export default function CreatActivity (){
                     <div>
                         <label>TEMPORADA: </label>
                         <input type="checkbox" id="Summer" name="season" value="Summer" onChange={(e) => handleCheck(e)}/>
-                        <label for="Summer">Verano</label>
+                        <label htmFor="Summer">Verano</label>
                         <input type="checkbox" id="Autumn" name="season" value="Autumn" onChange={(e) => handleCheck(e)}/>
-                        <label for="Autumn">Otoño</label>
+                        <label htmFor="Autumn">Otoño</label>
                         <input type="checkbox" id="Winter" name="season" value="Winter" onChange={(e) => handleCheck(e)}/>
-                        <label for="Winter">Invierno</label>
+                        <label htmFor="Winter">Invierno</label>
                         <input type="checkbox" id="Spring" name="season" value="Spring" onChange={(e) => handleCheck(e)}/>
-                        <label for="Spring">Primavera</label>
+                        <label htmFor="Spring">Primavera</label>
                         {errors.season && (
                             <p className="error">{errors.season}</p>
                         )}
-                        
-                       
+                      
                
                     </div><br/>
                     <div>
                         <label>DURACIÓN</label><br/>
                         <input 
-                             placeholder='ejemplo: 4hs30min'
+                             placeholder='ejemplo: 3hs30min'
                              name="duration"
+                             autoComplete='off'
                              onChange={handleChange}
                          /> 
                          {errors.duration && (
@@ -195,7 +202,7 @@ export default function CreatActivity (){
                      </div>
                      </div>
                      <ul>
-                         <li>{input.country.map(el => el + ",")}</li>
+                         <li>{input.country.map(el => el + ", ")}</li>
                     </ul>
 
                      <button type='submit'> CREAR </button>

@@ -51,7 +51,9 @@ export default function CountryDetails(props) {
                 <p>dificultad: {el.difficulty}</p> 
                 <p>duración: {el.duration} </p>
                 <p>temporada: {el.season}</p>
+               
                 </div>
+                
                 )
         }) 
     }

@@ -12,6 +12,7 @@ import SearchBar from "../SearchBar/searchBar";
 export default function Home() {
     return (
             <div>
+                <div>
                 <ReLoad />
                 <SearchBar />
                 <Order />
@@ -19,7 +20,10 @@ export default function Home() {
                 <FilterCountries />
                 <FilterActivity />
                 <FilterPopulation />
+                </div>
+                <div>
                 <Countries />
+                </div>
             </div>
 
     )
