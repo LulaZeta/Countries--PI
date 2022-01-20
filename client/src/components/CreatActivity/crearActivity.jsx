@@ -31,7 +31,6 @@ export default function CreatActivity (){
     function validate(input) {
         let nameTest =/^[a-zA-ZA-y\s]{3,80}$/; //solo letras de 3 a 80 caracteres
 
-        //let durationTest =/^{1,15}$/;
         let errors = {} ;
 
         if (!input.name) {
@@ -204,9 +203,9 @@ export default function CreatActivity (){
                      <ul>
                          <li>{input.country.map(el => el + ", ")}</li>
                     </ul>
-
+                    <div className= "actboton">                
                      <button type='submit'> CREAR </button>
-                    
+                     </div>
                      </form>
                      {input.country.map(el => 
                      <div className="">

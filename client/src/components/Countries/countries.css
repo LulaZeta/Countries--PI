@@ -1,26 +1,41 @@
-body {
+/* body {
   background-image: url(./verde.jpg);
   background-size: cover;
   background-repeat: repeat;
-}
+} */
 
-.main {
+/* .main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  grid-template-columns: repeat(5fr 1fr);
+} */
 
 .pagination {
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(206, 205, 205);
-  color: white;
-  list-style: none;
-  cursor: pointer;
   width: 100%;
+  list-style: none;
+  transition: background-color 0.3s;
+  text-align: center;
+  border-radius: 5px;
+  justify-content: center;
+
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 .sal:hover {
   background-color: white;
   color: black;
+}
+.flags {
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  color: black;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.margin {
+  margin-left: 0;
 }

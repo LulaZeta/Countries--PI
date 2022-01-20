@@ -10,11 +10,10 @@ import { Link } from 'react-router-dom'
 export default function Countries () {
   let countries = useSelector(state => state.filteredCountries)
 
-
-  const [currentPage, setCurrentPage] = useState(1)  //mi estado local, con la primer pagina q se renderiza
-     /* eslint-disable*/
+  const [currentPage, setCurrentPage] = useState(1) //mi estado local, con la primer pagina q se renderiza
+  /* eslint-disable*/
   const [countriesPerPage, setCountriesPerPage] = useState(10)
-    /* eslint-enable*/
+  /* eslint-enable*/
   const indexLast = currentPage * countriesPerPage
 
   const indexFirst = indexLast - countriesPerPage
@@ -25,42 +24,37 @@ export default function Countries () {
     setCurrentPage(pageNumber)
   }
 
-  return ( 
-    <div >
-        <div>
-        <Link to='/home/activity'>
-			<button className='bcrear'>Crear actividad</button>
-		</Link>
-        </div>
-       <div className='main'>
-      {
-      
-      currentCountries.map(el => {
-        return (
+  return (
+    <div className='margin'>
+       <Link to='/home/activity'>
+            <button className='bcrear'>Crear actividad</button>
+          </Link>
+
+      <div className='flags'>
+        <div className='container'>
          
-            
-                <Country
+          {currentCountries.map(el => {
+            return (
+              <Country
                 name={el.name}
                 image={el.image}
                 continents={el.continents}
                 id={el.id}
-                />
-                )
-         })
-      }
-        </div> 
-      <div className='pagination'>
-        
-              <Paginados
-                 countriesPerPage={countriesPerPage}
-                 filteredCountries={countries.length}
-                 currentPage={currentPage}
-                 pagination={pagination}
-             />
+              />
+            )
+          })}
         </div>
-        
       </div>
-      
-
+      <div>
+        <div className='pagination'>
+          <Paginados
+            countriesPerPage={countriesPerPage}
+            filteredCountries={countries.length}
+            currentPage={currentPage}
+            pagination={pagination}
+          />
+        </div>
+      </div>
+    </div>
   )
 }

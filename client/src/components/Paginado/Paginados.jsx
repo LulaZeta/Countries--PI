@@ -1,4 +1,5 @@
 import React from 'react'
+import './Paginados.css'
 
 export default function Paginados ({ countriesPerPage,
   filteredCountries,

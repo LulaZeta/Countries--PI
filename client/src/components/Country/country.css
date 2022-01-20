@@ -1,11 +1,12 @@
 .card {
-  margin: 20px;
-  width: 18rem;
-  margin-top: 0px;
-  padding-top: 0px;
+  display: grid;
+  grid-template-columns: repeat(5fr, 1fr);
+  width: 200px;
+
   border: 1px solid rgb(100, 100, 100);
   border-radius: 10px;
   background-color: rgb(240, 239, 239);
+  box-shadow: 5px 5px 5px 5px black;
 }
 .image {
   margin-left: 25%;
@@ -13,7 +14,7 @@
 }
 .container {
   display: grid;
-  grid-template-columns: repeat(1fr, 1fr);
+  grid-template-columns: repeat(5fr, 1fr);
   gap: 5px;
   height: 50%;
   width: 50%;
@@ -21,9 +22,9 @@
   align-items: center;
   color: black;
   margin-top: 30px;
-  margin-bottom: 50p;
+  margin-bottom: 50px;
+  margin-left: 30px;
 }
 .card:hover {
-  box-shadow: 20px 20px 20px rgb(246, 193, 193);
-  opacity: 1;
+  box-shadow: 20px 20px 20px black;
 }

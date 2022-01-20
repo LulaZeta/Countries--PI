@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
 
+
+
+
 export default function ActivitiesDetails({name, season, duration, difficulty, countries}) {
     const {id} = useParams();
     const dispatch = useDispatch()
@@ -24,11 +27,15 @@ export default function ActivitiesDetails({name, season, duration, difficulty, c
    
     
     return <div>
-        <div>
-        <Link to='/home'><button>Volver</button></Link>
-        </div>
 
+        <div>
+       
+        <Link to='/home'><button>Volver</button></Link>
+    
+        </div>
+      
         {
+            
             myAct ?
             <div>
         <button onClick={(e) => handleDelete(e, myAct.id)}>BORRAR ACTIVIDAD</button>
