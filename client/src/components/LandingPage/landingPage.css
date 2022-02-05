@@ -1,5 +1,5 @@
 .landing {
-  background-image: url("./wallpapertip_map-desktop-wallpaper_547810.jpg");
+  background-image: url("./juliana-kozoski-IoQioGLrz3Y-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -24,7 +24,12 @@
   border-radius: 6px;
 }
 .lText {
-  font-size: 80px;
+  font-size: 13vw;
   color: white;
-  text-shadow: 1px 0 10px #530027;
+  text-shadow: 2px 0 10px #ffc6c6;
+}
+.copyright {
+  color: white;
+  text-align: bottom;
+  font-size: 2vw;
 }
