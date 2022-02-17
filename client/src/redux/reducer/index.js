@@ -12,6 +12,7 @@ import {
   POPULATION_ORDER,
   MY_ACTIVITY,
   DELETE_ACTIVITY,
+
 } from "../actions";
 
 const initialState = {
@@ -88,6 +89,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: [...orderedPop],
       };
+ 
 
     case COUNTRY_DETAILS:
       return {

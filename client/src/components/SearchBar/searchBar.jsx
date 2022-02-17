@@ -8,9 +8,13 @@ export default function SearchBar(){
 
     function onSubmit(e) {
         e.preventDefault()
+        if (search.length === 0) {
+            return alert("Pais no existente")
+        } else {
         dispatch(searchCountries(search))
         setSearch('')
     }
+}
 
     function onInputChange(e){
         e.preventDefault()

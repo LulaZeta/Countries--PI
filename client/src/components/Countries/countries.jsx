@@ -4,6 +4,7 @@ import Paginados from '../Paginado/Paginados'
 import Country from '../Country/country'
 import './countries.css'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 
@@ -23,6 +24,9 @@ export default function Countries () {
   const pagination = pageNumber => {
     setCurrentPage(pageNumber)
   }
+  useEffect(()=>{
+    setCurrentPage(1)
+  },[countries])
 
   return (
     <div className='margin'>

@@ -14,6 +14,7 @@ export const POPULATION_ORDER = "POPULATION_ORDER";
 export const MY_ACTIVITY = "MY_ACTIVITY";
 export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 
+
 export function getCountries() {
   return async function (dispatch) {
     try {
@@ -52,6 +53,7 @@ export function sort(order) {
     payload: order,
   };
 }
+
 export function filterContinents(payload) {
   return {
     type: FILTER_CONTINENTS,
