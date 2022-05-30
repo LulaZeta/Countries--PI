@@ -194,7 +194,7 @@ router.post("/activity", async (req, res, next) => {
         name,
         difficulty,
         duration,
-        season,
+        season
       },
     });
     console.log(created);

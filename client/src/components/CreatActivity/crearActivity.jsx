@@ -19,7 +19,8 @@ export default function CreatActivity (){
         difficulty:"",
         duration:"",
         season:"",
-        country: []
+        country: [],
+
     })  
     useEffect(()=> {
         dispatch(getCountries());
@@ -87,6 +88,7 @@ export default function CreatActivity (){
             input.season &&
             input.duration &&
             input.country.length
+            
         ) {
         
         dispatch(postActivity(input))
@@ -96,7 +98,8 @@ export default function CreatActivity (){
             difficulty:"",
             duration:"",
             season:"",
-            country: []
+            country: [],
+          
         }) 
         history('/home')
         
@@ -109,9 +112,7 @@ export default function CreatActivity (){
              setInput ({
             ...input,
             country : [...input.country, e.target.value]
-        })
-        
-        //console.log(input)
+            })
         
     }
     function handleDelete (el) {
@@ -126,10 +127,13 @@ export default function CreatActivity (){
                 <div>
                     <Link to='/home'><button>Volver</button></Link>
                 </div>
-                <h2>Crear actividad</h2>
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <div className="body-form">
+                <div className='form-container'>
+            
+                <form className='form' onSubmit={(e) => handleSubmit(e)}>
                     <div>
-                        <label>NOMBRE</label><br/>
+                        <h2>Crear actividad</h2>
+                        <label>Nombre: </label><br/>
                         <input  placeholder='nombre de la actividad ...'
                         autoComplete='off'
                         type="text"
@@ -142,7 +146,7 @@ export default function CreatActivity (){
                     </div><br/>
 
                     <div>
-                        <label>DIFICULTAD</label><br/>
+                        <label>Dificultad:</label><br/>
 
                         <label htmFor="1">1</label>
                         <input type="radio" id="1" name="difficulty" value="1" onChange={(e) => handleCheck(e)}/>
@@ -159,15 +163,15 @@ export default function CreatActivity (){
                         )}
                     </div><br/>
                     <div>
-                        <label>TEMPORADA: </label>
+                        <label>Temporada: </label>
                         <input type="checkbox" id="Summer" name="season" value="Summer" onChange={(e) => handleCheck(e)}/>
-                        <label htmFor="Summer">Verano</label>
+                        <label htmFor="Summer">verano</label>
                         <input type="checkbox" id="Autumn" name="season" value="Autumn" onChange={(e) => handleCheck(e)}/>
-                        <label htmFor="Autumn">Otoño</label>
+                        <label htmFor="Autumn">otoño</label>
                         <input type="checkbox" id="Winter" name="season" value="Winter" onChange={(e) => handleCheck(e)}/>
-                        <label htmFor="Winter">Invierno</label>
+                        <label htmFor="Winter">invierno</label>
                         <input type="checkbox" id="Spring" name="season" value="Spring" onChange={(e) => handleCheck(e)}/>
-                        <label htmFor="Spring">Primavera</label>
+                        <label htmFor="Spring">primavera</label>
                         {errors.season && (
                             <p className="error">{errors.season}</p>
                         )}
@@ -175,7 +179,7 @@ export default function CreatActivity (){
                
                     </div><br/>
                     <div>
-                        <label>DURACIÓN</label><br/>
+                        <label>Duración: </label><br/>
                         <input 
                              placeholder='ejemplo: 3hs30min'
                              name="duration"
@@ -200,20 +204,28 @@ export default function CreatActivity (){
 
                      </div>
                      </div>
-                     <ul>
+                     <div className='countrySelection'>
+                     {/* <ul>
                          <li>{input.country.map(el => el + ", ")}</li>
-                    </ul>
-                    <div className= "actboton">                
-                     <button type='submit'> CREAR </button>
-                     </div>
-                     </form>
-                     {input.country.map(el => 
-                     <div className="">
-                         <p>{el}</p>
-                            <button className="delete" onClick={() => handleDelete(el)}>x</button>
+                    </ul> */}
+               
+                  <ul>
+                     {input.country.map((el) => 
+                     <div key={el} className="countriesSelected">
+                        <li className="list">{el}</li>
+                        <button className="btnClose" onClick={() => handleDelete(el)}>x</button>
                      </div>
                     )}
-            
+                    </ul>
+                    
+                    </div>
+                     <div>                
+                     <button className= "btnCreate" type='submit'> CREAR </button>
+                     </div>
+                     
+                      </form>
+                    </div>
+                    </div>
                       </div>)
                
                      
