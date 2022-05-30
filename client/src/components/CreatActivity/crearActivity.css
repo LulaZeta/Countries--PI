@@ -33,8 +33,28 @@
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 }
+
+.labels {
+  color: #293241;
+  font-family: 'Asap', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  text-transform: lowercase;
+  left: 0px;
+  display: inline-block;
+  margin: 30px;
+}
+
+
+
+
+
+
+
+
+
 .select {
-  width: 100%;
+  width: auto;
   padding: 10px;
   font-family: 'Asap', sans-serif;
   font-weight: 400px;
@@ -55,6 +75,7 @@
   font-family: 'Asap', sans-serif;
   font-weight: 400px;
   font-weight: 400;
+  justify-content: center;
 }
 
 .list {
@@ -92,68 +113,8 @@ box-sizing: border-box;
   background-color: #003664;
 }
 
-/* custom radio */
-.radio {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* hide the browser's default radio button */
-.radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* create custom radio */
-.radio .check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-}
-
-/* on mouse-over, add border color */
-.radio:hover input ~ .check {
-  border: 2px solid #377294;
-}
-
-/* add background color when the radio is checked */
-.radio input:checked ~ .check {
-  background-color: #c5249d;
-  border:none;
-}
-
-/* create the radio and hide when not checked */
-.radio .check:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* show the radio when checked */
-.radio input:checked ~ .check:after {
-  display: block;
-}
-
-/* radio style */
-.radio .check:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
 }
