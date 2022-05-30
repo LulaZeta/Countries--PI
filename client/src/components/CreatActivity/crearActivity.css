@@ -34,15 +34,12 @@
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-.labels {
-  color: #293241;
-  font-family: 'Asap', sans-serif;
-  font-weight: 200;
-  font-size: 22px;
-  text-transform: lowercase;
-  left: 0px;
-  display: inline-block;
-  margin: 30px;
+.input-name, .input-duration {
+  background-color: rgb(212, 212, 212);
+  color: black;
+  border: none;
+  height: 2rem;
+  margin: 8px;  
 }
 
 
@@ -53,8 +50,8 @@
 
 
 
-.select {
-  width: auto;
+/* .select {
+  width: 100%;
   padding: 10px;
   font-family: 'Asap', sans-serif;
   font-weight: 400px;
@@ -63,7 +60,7 @@
   font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
-}
+} */
 .countrySelection {
   width: 100%;
 
@@ -117,4 +114,10 @@ box-sizing: border-box;
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+}
+.error {
+  color: #ae2012;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+ 
 }

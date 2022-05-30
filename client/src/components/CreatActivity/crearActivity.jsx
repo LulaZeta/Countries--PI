@@ -134,11 +134,12 @@ export default function CreatActivity (){
                     <div>
                         <h2>Crear actividad</h2>
                         <label>Nombre: </label><br/>
-                        <input  placeholder='nombre de la actividad ...'
+                        <input  placeholder=' nombre de la actividad ...'
                         autoComplete='off'
                         type="text"
                         value={input.name}
                         name="name"
+                        className= "input-name"
                         onChange={handleChange}
                         />{errors.name && (
                             <p className="error">{errors.name}</p>
@@ -162,7 +163,7 @@ export default function CreatActivity (){
                             <p className="error">{errors.difficulty}</p>
                         )}
                     </div><br/>
-                    <div>
+                    <div className="checkbox-radio">
                         <label>Temporada: </label>
                         <input type="checkbox" id="Summer" name="season" value="Summer" onChange={(e) => handleCheck(e)}/>
                         <label htmFor="Summer">verano</label>
@@ -178,13 +179,14 @@ export default function CreatActivity (){
                       
                
                     </div><br/>
-                    <div>
+                    <div className="checkbox">
                         <label>Duración: </label><br/>
                         <input 
-                             placeholder='ejemplo: 3hs30min'
+                             placeholder=' ejemplo: 3hs30min'
                              name="duration"
                              autoComplete='off'
                              onChange={handleChange}
+                             className='input-duration'
                          /> 
                          {errors.duration && (
                             <p className="error">{errors.duration}</p>
