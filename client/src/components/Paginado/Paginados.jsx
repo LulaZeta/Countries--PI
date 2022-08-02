@@ -12,13 +12,13 @@ export default function Paginados ({ countriesPerPage,
   }
 
   return (
-    <nav>
+    <nav className='nav-pagination'>
       <ul className='pagination'>
         {pageNumbers &&
           pageNumbers.map(n => {
             return (
             <li className='number' key={n}>
-              <button onClick={() => pagination(n)}>{n}</button>
+              <button className='btnPagination' onClick={() => pagination(n)}>{n}</button>
             </li>
           )
           })}
