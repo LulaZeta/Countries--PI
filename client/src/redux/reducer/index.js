@@ -1,4 +1,4 @@
-import { ASCENDENTE } from "../../components/contantes/sort";
+import { ASCENDENTE } from '../../components/contantes/sort';
 import {
   GET_COUNTRIES,
   SEARCH_COUNTRIES,
@@ -12,8 +12,7 @@ import {
   POPULATION_ORDER,
   MY_ACTIVITY,
   DELETE_ACTIVITY,
-
-} from "../actions";
+} from '../actions';
 
 const initialState = {
   filteredCountries: [],
@@ -58,7 +57,7 @@ export default function reducer(state = initialState, action) {
     case FILTER_CONTINENTS:
       const continente = state.countries;
       const statusFiltered =
-        action.payload === "All"
+        action.payload === 'All'
           ? continente
           : continente.filter((el) => el.continents === action.payload);
       return {
@@ -89,7 +88,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredCountries: [...orderedPop],
       };
- 
 
     case COUNTRY_DETAILS:
       return {
@@ -111,7 +109,7 @@ export default function reducer(state = initialState, action) {
     case FILTER_ACTIVITY:
       const allCoun = state.countries;
       const filterActivi =
-        action.payload === "todos"
+        action.payload === 'todos'
           ? state.countries
           : allCoun.filter(
               (c) =>

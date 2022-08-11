@@ -1,24 +1,23 @@
-import axios from "axios";
-export const GET_COUNTRIES = "GET_COUNTRIES";
-export const SEARCH_COUNTRIES = "SEARCH_COUNTRIES";
-export const SORT = "SORT";
-export const FILTER_CONTINENTS = "FILTER_CONTINENTS";
-export const FILTER_COUNTRIES = "FILTER_COUNTRIES";
-export const COUNTRY_DETAILS = "COUNTRY_DETAILS";
-export const GET_ACTIVITY = "GET_ACTIVITY";
-export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
-export const POST_ACTIVITY = "POST_ACTIVITY";
-export const GET_ALL_ACTIVITY = "GET_ALL_ACTIVITY";
-export const FILTER_ACTIVITY = "FILTER_ACTIVITY";
-export const POPULATION_ORDER = "POPULATION_ORDER";
-export const MY_ACTIVITY = "MY_ACTIVITY";
-export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
-
+import axios from 'axios';
+export const GET_COUNTRIES = 'GET_COUNTRIES';
+export const SEARCH_COUNTRIES = 'SEARCH_COUNTRIES';
+export const SORT = 'SORT';
+export const FILTER_CONTINENTS = 'FILTER_CONTINENTS';
+export const FILTER_COUNTRIES = 'FILTER_COUNTRIES';
+export const COUNTRY_DETAILS = 'COUNTRY_DETAILS';
+export const GET_ACTIVITY = 'GET_ACTIVITY';
+export const GET_NAME_COUNTRY = 'GET_NAME_COUNTRY';
+export const POST_ACTIVITY = 'POST_ACTIVITY';
+export const GET_ALL_ACTIVITY = 'GET_ALL_ACTIVITY';
+export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
+export const POPULATION_ORDER = 'POPULATION_ORDER';
+export const MY_ACTIVITY = 'MY_ACTIVITY';
+export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
 
 export function getCountries() {
   return async function (dispatch) {
     try {
-      await axios.get("http://localhost:3001/countries/").then((countries) => {
+      await axios.get('http://localhost:3001/countries/').then((countries) => {
         dispatch({
           type: GET_COUNTRIES,
           payload: countries.data,
@@ -34,7 +33,7 @@ export function searchCountries(search) {
   return async function (dispatch) {
     try {
       await axios
-        .get("http://localhost:3001/countries/?name=" + search)
+        .get('http://localhost:3001/countries/?name=' + search)
         .then((countries) => {
           dispatch({
             type: SEARCH_COUNTRIES,
@@ -85,9 +84,9 @@ export function filterPopulation(order) {
 export function countryDetails(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/countries/" + id);
+      var json = await axios.get('http://localhost:3001/countries/' + id);
       return dispatch({
-        type: "COUNTRY_DETAILS",
+        type: 'COUNTRY_DETAILS',
         payload: json.data,
       });
     } catch (error) {
@@ -99,11 +98,11 @@ export function countryDetails(id) {
 export function postActivity(payload) {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/activity/",
+      'http://localhost:3001/activity/',
       payload
     );
     dispatch({
-      type: "POST_ACTIVITY",
+      type: 'POST_ACTIVITY',
       payload: response.data,
     });
   };
@@ -113,9 +112,9 @@ export function getAllActivities(payload) {
   console.log(payload);
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/activity/", payload);
+      var json = await axios.get('http://localhost:3001/activity/', payload);
       return dispatch({
-        type: "GET_ALL_ACTIVITY",
+        type: 'GET_ALL_ACTIVITY',
         payload: json.data,
       });
     } catch (error) {
@@ -126,9 +125,9 @@ export function getAllActivities(payload) {
 export function myActivity(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/activity/" + id);
+      var json = await axios.get('http://localhost:3001/activity/' + id);
       return dispatch({
-        type: "MY_ACTIVITY",
+        type: 'MY_ACTIVITY',
         payload: json.data,
       });
     } catch (error) {
@@ -140,7 +139,7 @@ export function myActivity(id) {
 export function deleteActivity(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.delete("http://localhost:3001/activity/" + id);
+      var json = await axios.delete('http://localhost:3001/activity/' + id);
       return dispatch({
         type: DELETE_ACTIVITY,
         payload: json,
