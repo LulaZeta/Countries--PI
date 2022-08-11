@@ -8,20 +8,31 @@ import FilterCountries from '../Filters/filterCountries';
 import FilterPopulation from '../Filters/filterPopulation';
 
 import Order from '../Order/order';
-import ReLoad from '../Reload/reload';
+//import ReLoad from '../Reload/reload';
 import SearchBar from '../SearchBar/searchBar';
 import './home.css';
-//import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { getCountries } from '../../redux/actions';
+import { useEffect } from 'react';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(
+    (e) => {
+      dispatch(getCountries());
+    },
+    [dispatch]
+  );
+
   return (
     <div>
       <div>
         <Navbar />
       </div>
-      <div className="inicio-busqueda">
+      {/* <div className="inicio-busqueda">
         <ReLoad />
-      </div>
+      </div> */}
       <div className="inputs">
         <FilterContinents />
         <FilterCountries />
