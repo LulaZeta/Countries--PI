@@ -5,13 +5,11 @@ import Home from './components/Home/home';
 import CountryDetails from './components/CountryDetails/countryDetails';
 import CreatActivity from './components/CreatActivity/crearActivity';
 import ActivitiesDetails from './components/CreatActivity/activividad';
-import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
         <Routes>
           <Route path="/home/:id" element={<CountryDetails />}></Route>
           <Route

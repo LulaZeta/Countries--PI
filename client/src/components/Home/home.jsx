@@ -1,5 +1,6 @@
 import React from 'react';
 import Countries from '../Countries/countries';
+import Navbar from '../Navbar/Navbar';
 
 import FilterActivity from '../Filters/filterActivity';
 import FilterContinents from '../Filters/filterContienes';
@@ -15,6 +16,9 @@ import './home.css';
 export default function Home() {
   return (
     <div>
+      <div>
+        <Navbar />
+      </div>
       <div className="inicio-busqueda">
         <ReLoad />
       </div>
