@@ -31,8 +31,8 @@ export default function Countries() {
           {currentCountries.map((el) => {
             return (
               <Country
-                name={el.name}
                 image={el.image}
+                name={el.name}
                 continents={el.continents}
                 id={el.id}
               />

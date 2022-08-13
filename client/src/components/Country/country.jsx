@@ -1,26 +1,33 @@
-import { Link } from "react-router-dom";
-import './country.css'
+import { Link } from 'react-router-dom';
+import './country.css';
 
-
-
-export default function Country ({ name, continents, image, id }) {
-    return (
-      <div className='container'>
-        <div className='card'>
-          <h3>{name}</h3>
-          <div>
+export default function Country({ name, continents, image, id }) {
+  return (
+    <div className="body-country">
+      <div className="container">
+        <div className="card">
+          <div className="card-header">
             <Link to={`/home/${id}`}>
               <img
                 src={image}
-                alt='imagen not found'
-                width='150px'
-                height='100px'
+                alt="imagen not found"
+                width="150px"
+                height="100px"
               />
             </Link>
           </div>
-          <h4>{continents}</h4>
-          <h4>{id}</h4>
+          <div className="card-body">
+            <h3>{name}</h3>
+            <h4>{continents}</h4>
+            <p>{id}</p>
+            <div className="card-button">
+              <Link to={`/home/${id}`}>
+                <button className="button-detail">Details</button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    )
-    }
+    </div>
+  );
+}

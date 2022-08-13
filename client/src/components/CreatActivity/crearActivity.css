@@ -11,7 +11,6 @@
 } */
 
 .body-form {
-  
   background: linear-gradient(145deg, #053661 0%, #52af90 90%);
   height: 100%;
   margin: 0;
@@ -34,21 +33,14 @@
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-.input-name, .input-duration {
+.input-name,
+.input-duration {
   background-color: rgb(212, 212, 212);
   color: black;
   border: none;
   height: 2rem;
-  margin: 8px;  
+  margin: 8px;
 }
-
-
-
-
-
-
-
-
 
 /* .select {
   width: 100%;
@@ -63,7 +55,6 @@
 } */
 .countrySelection {
   width: 100%;
-
 }
 .countriesSelected {
   display: flex;
@@ -95,29 +86,27 @@
 }
 
 .btnCreate {
-  
-background-color: #196bb0;
-color: #fff;
-font-size: 0.9rem;
-border: 0;
-border-radius: 5px;
-height: 40px;
-padding: 0 20px;
-cursor: pointer;
-box-sizing: border-box;
+  background-color: #053661;
+  color: #fff;
+  font-size: 0.9rem;
+  border: 0;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 20px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
-.btnCreate:hover{
+.btnCreate:hover {
   background-color: #003664;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 .error {
   color: #ae2012;
   font-weight: 400;
   margin: 0 0 20px 0;
- 
 }
