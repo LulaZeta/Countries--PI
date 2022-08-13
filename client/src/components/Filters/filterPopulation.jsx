@@ -19,7 +19,7 @@ export default function FilterPopulation() {
   }
 
   return (
-    <div>
+    <div className="select">
       <select name="select" onChange={(e) => handleOrderP(e)}>
         <option>Ordenar por población</option>
         <option value={ASCENDENTE}>Menor Poblacion</option>

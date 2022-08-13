@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { myActivity, deleteActivity } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 
 export default function ActivitiesDetails({
@@ -14,6 +14,7 @@ export default function ActivitiesDetails({
   const { id } = useParams();
   const dispatch = useDispatch();
   const myAct = useSelector((state) => state.activity);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(myActivity(id));
@@ -25,6 +26,11 @@ export default function ActivitiesDetails({
     dispatch(deleteActivity(myAct.id));
     alert('la actividad fue borrada');
   }
+
+  const atras = () => {
+    navigate(-1);
+    //props.scrollTo();
+  };
 
   return (
     <div>

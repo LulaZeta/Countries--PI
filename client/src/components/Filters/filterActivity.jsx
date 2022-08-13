@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllActivities, filterActivity } from '../../redux/actions';
-
+import './filterActivity.css';
 export default function FilterActivity() {
   const dispatch = useDispatch();
   const act = useSelector((state) => state.activity);
@@ -17,7 +17,7 @@ export default function FilterActivity() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="select">
       <select name="select" onChange={handleFilterActivity}>
         <option value="todos">Actividades</option>
 

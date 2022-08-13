@@ -22,7 +22,7 @@ export default function Country({ name, continents, image, id }) {
             <p>{id}</p>
             <div className="card-button">
               <Link to={`/home/${id}`}>
-                <button className="button-detail">Details</button>
+                <button className="button-detail">info</button>
               </Link>
             </div>
           </div>
