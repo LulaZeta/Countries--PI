@@ -1,7 +1,25 @@
-
 .orden {
   display: grid;
-  margin: 2%;
-  gap: 1 rem;
+  margin: 1%;
+  gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
+.inputs {
+  display: grid;
+  margin: 1%;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+/* .orden {
+  margin: 5rem auto;
+  width: min(90%, 75rem);
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2em;
+}
+@media (min-max: 45em) {
+  .orden {
+    grid-auto-flow: column;
+  }
+} */

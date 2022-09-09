@@ -1,19 +1,18 @@
 import React from 'react';
 import Countries from '../Countries/countries';
 import Navbar from '../Navbar/Navbar';
-
-import FilterActivity from '../Filters/filterActivity';
 import FilterContinents from '../Filters/filterContienes';
 import FilterCountries from '../Filters/filterCountries';
 import FilterPopulation from '../Filters/filterPopulation';
 
 import Order from '../Order/order';
 //import ReLoad from '../Reload/reload';
-import SearchBar from '../SearchBar/searchBar';
+//import SearchBar from '../SearchBar/searchBar';
 import './home.css';
 import { useDispatch } from 'react-redux';
 import { getCountries } from '../../redux/actions';
 import { useEffect } from 'react';
+import FilterActivity from '../Filters/filterActivity';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -34,14 +33,23 @@ export default function Home() {
         <ReLoad />
       </div> */}
       <div className="inputs">
-        <FilterContinents />
-        <FilterCountries />
-        <SearchBar />
+        <div>
+          <FilterContinents />
+        </div>
+        <div>
+          <FilterCountries />
+        </div>
+        <div>
+          <FilterActivity />
+        </div>
       </div>
       <div className="orden">
-        <Order />
-        <FilterActivity />
-        <FilterPopulation />
+        <div>
+          <Order />
+        </div>
+        <div>
+          <FilterPopulation />
+        </div>
       </div>
 
       <div>

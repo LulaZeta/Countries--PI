@@ -17,10 +17,12 @@ export default function Order() {
   }
 
   return (
-    <select name="select" onChange={onSelectChange}>
-      <option>Ordenar por abc</option>
-      <option value={ASCENDENTE}>ascendente</option>
-      <option value={DESCENDENTE}>descendente</option>
-    </select>
+    <div className="select">
+      <select name="select" onChange={onSelectChange}>
+        <option>Ordenar por abc</option>
+        <option value={ASCENDENTE}>ascendente</option>
+        <option value={DESCENDENTE}>descendente</option>
+      </select>
+    </div>
   );
 }

@@ -19,7 +19,8 @@ export default function Navbar() {
               Crear actividad
             </a>
           </li>
-          <li className="items">
+
+          <li>
             <SearchBar />
           </li>
         </ul>
