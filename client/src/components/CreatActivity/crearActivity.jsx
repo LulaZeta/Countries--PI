@@ -126,10 +126,12 @@ export default function CreatActivity() {
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <div>
               <h2>Crear actividad</h2>
-              <label>Nombre: </label>
+              <label>
+                <strong>Nombre:</strong>{' '}
+              </label>
               <br />
               <input
-                placeholder=" nombre de la actividad ..."
+                placeholder=" actividad ..."
                 autoComplete="off"
                 type="text"
                 value={input.name}
@@ -142,7 +144,9 @@ export default function CreatActivity() {
             <br />
 
             <div>
-              <label>Dificultad:</label>
+              <label>
+                <strong>Dificultad:</strong>
+              </label>
               <br />
 
               <label htmFor="1">1</label>
@@ -177,6 +181,7 @@ export default function CreatActivity() {
                 value="4"
                 onChange={(e) => handleCheck(e)}
               />
+
               <label htmFor="5">5</label>
               <input
                 type="radio"
@@ -185,13 +190,17 @@ export default function CreatActivity() {
                 value="5"
                 onChange={(e) => handleCheck(e)}
               />
+
               {errors.difficulty && (
                 <p className="error">{errors.difficulty}</p>
               )}
             </div>
             <br />
             <div className="checkbox-radio">
-              <label>Temporada: </label>
+              <label>
+                <strong>Temporada:</strong>
+              </label>
+              <br></br>
               <input
                 type="checkbox"
                 id="Summer"
@@ -228,7 +237,9 @@ export default function CreatActivity() {
             </div>
             <br />
             <div className="checkbox">
-              <label>Duración: </label>
+              <label>
+                <strong>Duración:</strong>{' '}
+              </label>
               <br />
               <input
                 placeholder=" ejemplo: 3hs30min"
@@ -243,7 +254,7 @@ export default function CreatActivity() {
             <div>
               <div className="select">
                 <select required onChange={(e) => handleSelect(e)}>
-                  <option>Seleccionar pais</option>
+                  <option>Seleccionar pais ...</option>
                   {pais.map((el) => (
                     <option value={el.name}>{el.name}</option>
                   ))}
@@ -269,7 +280,7 @@ export default function CreatActivity() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="div-btnCreate">
               <button className="btnCreate" type="submit">
                 {' '}
                 CREAR{' '}

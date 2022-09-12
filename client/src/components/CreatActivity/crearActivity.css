@@ -39,7 +39,15 @@
   color: black;
   border: none;
   height: 2rem;
+  width: 24em;
   margin: 8px;
+}
+.input-difficulty {
+  padding: 5em;
+}
+
+.select {
+  margin: auto;
 }
 
 /* .select {
@@ -92,12 +100,15 @@
   border: 0;
   border-radius: 5px;
   height: 40px;
-  padding: 0 20px;
+  padding: 0 30px;
   cursor: pointer;
   box-sizing: border-box;
 }
 .btnCreate:hover {
   background-color: #003664;
+}
+.div-btnCreate {
+  padding-top: 1em;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
