@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { getCountries } from '../../redux/actions';
 import { useEffect } from 'react';
 import FilterActivity from '../Filters/filterActivity';
+import SearchBar from '../SearchBar/searchBar';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ export default function Home() {
         </div>
         <div>
           <FilterPopulation />
+        </div>
+        <div>
+          <SearchBar />
         </div>
       </div>
 

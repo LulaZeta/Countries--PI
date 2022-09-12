@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchCountries } from '../../redux/actions';
-import lupa from '../../assets/img/lupa.png';
+//import lupa from '../../assets/img/lupa.png';
 import './searchBar.css';
 export default function SearchBar() {
   const [search, setSearch] = useState('');
@@ -29,11 +29,11 @@ export default function SearchBar() {
           type="text"
           onChange={onInputChange}
           value={search}
-          placeholder="...buscar"
+          placeholder=" buscar pais ..."
         />
-        <button type="submit" value="Buscar">
+        {/* <button type="submit" value="Buscar">
           <img src={lupa} alt="buscar" />
-        </button>
+        </button> */}
       </form>
     </div>
   );

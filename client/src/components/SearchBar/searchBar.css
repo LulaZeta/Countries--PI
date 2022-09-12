@@ -1,14 +1,29 @@
 .search-box {
-  display: inline;
+  /* display: inline;
   width: 80%;
   height: 30%;
-  margin: 1rem 0;
+  margin: 1rem 0; */
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
 }
-.search-box img {
+/* .search-box img {
   width: 30px !important;
-}
+} */
 .search-form {
   justify-content: space-between;
+}
+
+.search-input {
+  width: 23.4em;
+  height: 3.2em;
+  background: none;
+  border: 2px solid#34495e;
+
+  /* box-sizing: border-box; */
 }
 
 /* .search-box {

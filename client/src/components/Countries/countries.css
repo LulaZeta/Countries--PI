@@ -44,17 +44,25 @@
   background-color: white;
   color: black;
 }
-.flags {
+/* .flags {
   margin-bottom: 30px;
-}
+} */
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 5px;
   color: black;
   margin-right: 30px;
-  margin-left: 30px;
+  margin-left: 30px; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  column-gap: 2px;
+  row-gap: 24px;
+  max-width: 948px;
+  margin: 0 auto;
 }
 .margin {
   margin-left: 0;
