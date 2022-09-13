@@ -34,7 +34,7 @@ export default function CountryDetails(props) {
         <div className="atras">
           <div onClick={() => atras()}>
             <img src={arrow} alt="back" />
-            <button>atras</button>
+            <button>atrás</button>
           </div>
         </div>
         {myCountry ? (
@@ -54,18 +54,23 @@ export default function CountryDetails(props) {
             <p>Subregión: {myCountry.subregion}</p>
             <p>Área: {myCountry.area} Km²</p>
             <p>Población: {myCountry.population} habitantes</p>
+            <hr></hr>
             <h3>Actividades: </h3>
 
             {myCountry.activities?.length > 0 ? (
               myCountry.activities.map((el) => {
                 return (
-                  <div className="activity">
-                    <Link to={'/home/activity/' + el.id}>
-                      <h3>{el.name}</h3>
-                    </Link>
-                    <p>dificultad: {el.difficulty}</p>
-                    <p>duración: {el.duration} </p>
-                    <p>temporada: {el.season}</p>
+                  <div className="container-activity">
+                    <div className="box-activity">
+                      <div className="activity">
+                        <Link to={'/home/activity/' + el.id}>
+                          <button className="btnActivity">{el.name}</button>
+                        </Link>
+                        <p>dificultad: {el.difficulty}</p>
+                        <p>duración: {el.duration} </p>
+                        <p>temporada: {el.season}</p>
+                      </div>
+                    </div>
                   </div>
                 );
               })
