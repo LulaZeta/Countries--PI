@@ -1,16 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
 .Navbar_container {
   height: 100px;
   width: 100%;
+
   top: 0;
   left: 0;
   background-color: #293241;
 }
 
-.container_inner {
+/* .container_inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .list {
   list-style-type: none;
@@ -19,8 +25,9 @@
   overflow: hidden;
 }
 .items {
+  max-width: 1024px;
   float: left;
-  margin-right: 20px;
+  margin-right: 80px;
   font-size: 20px;
   color: #fff;
   transition: all 0.8s ease-in-out;

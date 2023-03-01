@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { myActivity, deleteActivity } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 
 export default function ActivitiesDetails({
@@ -14,7 +14,6 @@ export default function ActivitiesDetails({
   const { id } = useParams();
   const dispatch = useDispatch();
   const myAct = useSelector((state) => state.activity);
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(myActivity(id));
@@ -27,29 +26,28 @@ export default function ActivitiesDetails({
     alert('la actividad fue borrada');
   }
 
-  const atras = () => {
-    navigate(-1);
-    //props.scrollTo();
-  };
-
   return (
     <div>
       <div>
         <Navbar />
       </div>
 
-      <div>
+      {/* <div>
         <Link to="/home">
           <button>Volver</button>
         </Link>
-      </div>
+      </div> */}
 
       {myAct ? (
         <div>
-          <button onClick={(e) => handleDelete(e, myAct.id)}>
+          <br></br>
+          <button
+            className="btnCreate"
+            onClick={(e) => handleDelete(e, myAct.id)}
+          >
             BORRAR ACTIVIDAD
           </button>
-          <h1>ACTIVIDAD: {myAct.name}</h1>
+          <h1>Actividad: {myAct.name}</h1>
           <h4>{myAct.season}</h4>
           <p>dificultad:{myAct.difficulty}</p>
           <p>duración:{myAct.duration}</p>
