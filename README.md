@@ -2,7 +2,7 @@
 
 
 Proyecto individual para soy Henry
-#### Tecnologías utilizadass:
+#### Tecnologías utilizadas:
 
 - [ ] React
 - [ ] Redux
